@@ -1,21 +1,7 @@
 import { MetadataRoute } from 'next';
-import prisma from '@/lib/prisma';
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = 'https://spiritualhometamil.com'; // Replace with actual domain
-
-    // Get all public videos
-    const videos = await prisma.video.findMany({
-        where: { isActive: true },
-        select: { id: true, updatedAt: true },
-    });
-
-    const videoUrls = videos.map((video) => ({
-        url: `${baseUrl}/videos/${video.id}`,
-        lastModified: video.updatedAt,
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
-    }));
+export default function sitemap(): MetadataRoute.Sitemap {
+    const baseUrl = 'https://spiritualhometamil.com';
 
     return [
         {
@@ -25,17 +11,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 1,
         },
         {
-            url: `${baseUrl}/login`,
+            url: `${baseUrl}/videos`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly',
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/contact`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.5,
         },
         {
-            url: `${baseUrl}/register`,
+            url: `${baseUrl}/privacy`,
             lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.5,
+            changeFrequency: 'yearly',
+            priority: 0.3,
         },
-        ...videoUrls,
+        {
+            url: `${baseUrl}/terms`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
+        {
+            url: `${baseUrl}/refund-policy`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.3,
+        },
     ];
 }

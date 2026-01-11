@@ -112,8 +112,133 @@ export const content = {
             legal: "Legal",
             privacy: "Privacy Policy",
             terms: "Terms of Service",
+            refund: "Cancellation & Refund",
             contact: "Contact",
-            rights: "Spiritual Home Tamil. All rights reserved."
+            rights: "Spiritual Home Tamil. All rights reserved.",
+            newsletter: {
+                title: "Stay Connected",
+                desc: "Join our newsletter for spiritual insights and updates.",
+                placeholder: "Enter your email",
+                button: "Subscribe"
+            }
+        },
+        legalContent: {
+            updated: "Last updated: January 11, 2026",
+            returnHome: "Return to Home",
+            privacy: {
+                title: "Privacy Policy",
+                intro: {
+                    title: "1. Introduction",
+                    content: "Welcome to Spiritual Home Tamil. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights."
+                },
+                dataCollect: {
+                    title: "2. Data We Collect",
+                    content: "We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows:",
+                    items: [
+                        "Identity Data: includes name, username or similar identifier.",
+                        "Contact Data: includes email address and telephone numbers.",
+                        "Transaction Data: includes details about payments to and from you.",
+                        "Technical Data: includes internet protocol (IP) address, your login data, browser type and version."
+                    ]
+                },
+                usage: {
+                    title: "3. How We Use Your Data",
+                    content: "We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:",
+                    items: [
+                        "To register you as a new customer.",
+                        "To process and deliver your order including managing payments, fees and charges.",
+                        "To manage our relationship with you which will include notifying you about changes to our terms or privacy policy."
+                    ]
+                },
+                security: {
+                    title: "4. Data Security",
+                    content: "We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed."
+                },
+                contact: {
+                    title: "5. Contact Us",
+                    content: "If you have any questions about this privacy policy or our privacy practices, please contact us at:",
+                    email: "support@spiritualhometamil.com"
+                }
+            },
+            terms: {
+                title: "Terms of Service",
+                agreement: {
+                    title: "1. Agreement to Terms",
+                    content: "By accessing or using our website and services, you agree to be bound by these Terms. If you disagree with any part of the terms, then you may not access the Service."
+                },
+                ip: {
+                    title: "2. Intellectual Property",
+                    content: "The Service and its original content (excluding Content provided by users), features and functionality are and will remain the exclusive property of Spiritual Home Tamil and its licensors."
+                },
+                accounts: {
+                    title: "3. User Accounts",
+                    content: "When you create an account with us, you must provide us information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms."
+                },
+                purchases: {
+                    title: "4. Purchases",
+                    content: "If you wish to purchase any product or service made available through the Service, you may be asked to supply certain information relevant to your Purchase including, without limitation, your credit card number, the expiration date of your credit card, and your billing address."
+                },
+                termination: {
+                    title: "5. Termination",
+                    content: "We may terminate or suspend your account immediately, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms."
+                },
+                law: {
+                    title: "6. Governing Law",
+                    content: "These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions."
+                }
+            },
+            refund: {
+                title: "Cancellation & Refund Policy",
+                digital: {
+                    title: "1. Digital Products",
+                    content: "Due to the nature of digital products (video courses, downloadable content), we generally do not offer refunds once the product has been accessed or downloaded."
+                },
+                eligibility: {
+                    title: "2. Refund Eligibility",
+                    content: "Refunds may be considered under the following circumstances:",
+                    items: [
+                        "The course content is technically defective or inaccessible.",
+                        "You have accidentally purchased the same course twice.",
+                        "The purchase was made unauthorized using your account details (requires proof)."
+                    ],
+                    note: "Requests must be made within 7 days of purchase."
+                },
+                request: {
+                    title: "3. How to Request a Refund",
+                    content: "To request a refund, please contact our support team with your order details and the reason for the request. We aim to review all requests within 48 business hours."
+                },
+                cancellation: {
+                    title: "4. Cancellation",
+                    content: "For recurring subscriptions (if applicable), you may cancel your subscription at any time. Your access will continue until the end of the current billing period."
+                }
+            }
+        },
+        contactPage: {
+            title: "Send us a Message",
+            successTitle: "Message Sent!",
+            successDesc: "We'll get back to you shortly.",
+            form: {
+                name: "Name",
+                namePlaceholder: "Your name",
+                email: "Email",
+                emailPlaceholder: "you@example.com",
+                subject: "Subject",
+                subjectPlaceholder: "How can we help?",
+                message: "Message",
+                messagePlaceholder: "Write your message here...",
+                sendButton: "Send Message",
+                sending: "Sending..."
+            },
+            info: {
+                title: "Get in Touch",
+                subtitle: "Have questions about our courses or need assistance? We're here to help you on your spiritual journey.",
+                emailTitle: "Email Us",
+                callTitle: "Call Us",
+                callTime: "Mon-Fri from 9am to 6pm IST",
+                visitTitle: "Visit Us",
+                address: "123 Spiritual Avenue, Anna Nagar, Chennai, Tamil Nadu 600040",
+                returnHome: "Return to Home"
+            }
         },
         auth: {
             signin: "Sign In",
@@ -268,8 +393,133 @@ export const content = {
             legal: "சட்டபூர்வமானவை",
             privacy: "தனியுரிமைக் கொள்கை",
             terms: "சேவை விதிமுறைகள்",
+            refund: "ரத்து & திரும்பப்பெறுதல்",
             contact: "தொடர்பு கொள்ள",
-            rights: "Spiritual Home Tamil. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை."
+            rights: "Spiritual Home Tamil. அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+            newsletter: {
+                title: "இணைந்திருங்கள்",
+                desc: "ஆன்மீக நுண்ணறிவு மற்றும் புதுப்பிப்புகளுக்கு எங்கள் செய்திமடலில் சேரவும்.",
+                placeholder: "உங்கள் மின்னஞ்சலை உள்ளிடவும்",
+                button: "சந்தா சேரவும்"
+            }
+        },
+        legalContent: {
+            updated: "கடைசியாகப் புதுப்பிக்கப்பட்டது: ஜனவரி 11, 2026",
+            returnHome: "முகப்புக்குத் திரும்பு",
+            privacy: {
+                title: "தனியுரிமைக் கொள்கை (Privacy Policy)",
+                intro: {
+                    title: "1. அறிமுகம்",
+                    content: "Spiritual Home Tamil-க்கு உங்களை வரவேற்கிறோம். நாங்கள் உங்கள் தனியுரிமையை மதிக்கிறோம் மற்றும் உங்கள் தனிப்பட்ட தரவைப் பாதுகாப்பதில் உறுதியாக உள்ளோம். நீங்கள் எங்கள் வலைத்தளத்தைப் பார்வையிடும்போது உங்கள் தனிப்பட்ட தரவை நாங்கள் எவ்வாறு பாதுகாப்போம் என்பதை இந்தக் கொள்கை விளக்குகிறது."
+                },
+                dataCollect: {
+                    title: "2. நாங்கள் சேகரிக்கும் தரவு",
+                    content: "நாங்கள் கீழ்க்கண்ட வகையான தனிப்பட்ட தரவைச் சேகரிக்கலாம்:",
+                    items: [
+                        "அடையாளத் தரவு: பெயர், பயனர் பெயர் அல்லது அதுபோன்ற அடையாளங்கள்.",
+                        "தொடர்புத் தரவு: மின்னஞ்சல் முகவரி மற்றும் தொலைபேசி எண்கள்.",
+                        "பரிவர்த்தனைத் தரவு: நீங்கள் செய்த கட்டணங்கள் மற்றும் வாங்கிய தயாரிப்புகள் பற்றிய விவரங்கள்.",
+                        "தொழிற்நுட்பத் தரவு: இணைய நெறிமுறை (IP) முகவரி, உள்நுழைவுத் தரவு, உலாவி வகை மற்றும் பதிப்பு."
+                    ]
+                },
+                usage: {
+                    title: "3. உங்கள் தரவை நாங்கள் எவ்வாறு பயன்படுத்துகிறோம்",
+                    content: "சட்டம் அனுமதிக்கும் போது மட்டுமே உங்கள் தனிப்பட்ட தரவை நாங்கள் பயன்படுத்துவோம். பொதுவாக, பின்வரும் சூழ்நிலைகளில் பயன்படுத்துவோம்:",
+                    items: [
+                        "உங்களை ஒரு புதிய வாடிக்கையாளராகப் பதிவு செய்ய.",
+                        "உங்கள் ஆர்டரைச் செயல்படுத்த மற்றும் வழங்க (கட்டணங்களை நிர்வகிப்பது உட்பட).",
+                        "எங்கள் விதிமுறைகள் அல்லது தனியுரிமைக் கொள்கையில் ஏற்படும் மாற்றங்களைப் பற்றி உங்களுக்குத் தெரிவிக்க."
+                    ]
+                },
+                security: {
+                    title: "4. தரவு பாதுகாப்பு",
+                    content: "உங்கள் தனிப்பட்ட தரவு தற்செயலாக இழக்கப்படுவதையோ, பயன்படுத்தப்படுவதையோ அல்லது அங்கீகரிக்கப்படாத வழியில் அணுகப்படுவதையோ தடுக்க நாங்கள் பொருத்தமான பாதுகாப்பு நடவடிக்கைகளை மேற்கொண்டுள்ளோம்."
+                },
+                contact: {
+                    title: "5. எங்களைத் தொடர்பு கொள்ள",
+                    content: "இந்தத் தனியுரிமைக் கொள்கையைப் பற்றி உங்களுக்கு ஏதேனும் கேள்விகள் இருந்தால், எங்களை இங்கே தொடர்பு கொள்ளவும்:",
+                    email: "support@spiritualhometamil.com"
+                }
+            },
+            terms: {
+                title: "சேவை விதிமுறைகள் (Terms of Service)",
+                agreement: {
+                    title: "1. விதிமுறைகளை ஏற்றுக்கொள்வது",
+                    content: "எங்கள் வலைத்தளம் மற்றும் சேவைகளைப் பயன்படுத்துவதன் மூலம், இந்த விதிமுறைகளுக்குக் கட்டுப்படுவதை நீங்கள் ஒப்புக்கொள்கிறீர்கள். விதிமுறைகளின் எந்தப் பகுதியையும் நீங்கள் ஏற்கவில்லை என்றால், நீங்கள் சேவையை அணுக முடியாது."
+                },
+                ip: {
+                    title: "2. அறிவுசார் சொத்துரிமை",
+                    content: "சேவை மற்றும் அதன் அசல் உள்ளடக்கம் (பயனர்களால் வழங்கப்படும் உள்ளடக்கம் தவிர), அம்சங்கள் மற்றும் செயல்பாடுகள் Spiritual Home Tamil மற்றும் அதன் உரிமையாளர்களின் பிரத்யேகச் சொத்தாக இருக்கும்."
+                },
+                accounts: {
+                    title: "3. பயனர் கணக்குகள்",
+                    content: "எங்களிடம் கணக்கை உருவாக்கும்போது, நீங்கள் துல்லியமான மற்றும் முழுமையான தகவல்களை வழங்க வேண்டும். அவ்வாறு செய்யத் தவறினால் அது விதிமுறைகளை மீறுவதாகும்."
+                },
+                purchases: {
+                    title: "4. கொள்முதல் (Purchases)",
+                    content: "எங்கள் சேவை மூலம் கிடைக்கும் தயாரிப்பு அல்லது சேவையை நீங்கள் வாங்க விரும்பினால், உங்கள் கிரெடிட் கார்டு எண், காலாவதி தேதி மற்றும் பில்லிங் முகவரி போன்ற தகவல்களை நீங்கள் வழங்க வேண்டியிருக்கும்."
+                },
+                termination: {
+                    title: "5. கணக்கு நீக்கம்",
+                    content: "விதிமுறைகளை நீங்கள் மீறினால், முன்னறிவிப்பு அல்லது பொறுப்பு இன்றி, உங்கள் கணக்கை நாங்கள் உடனடியாக நிறுத்தலாம் அல்லது இடைநிறுத்தலாம்."
+                },
+                law: {
+                    title: "6. ஆளுகைச் சட்டம்",
+                    content: "இந்த விதிமுறைகள் இந்தியச் சட்டங்களுக்கு ஏற்ப நிர்வகிக்கப்படும்."
+                }
+            },
+            refund: {
+                title: "ரத்து & திரும்பப்பெறுதல் கொள்கை",
+                digital: {
+                    title: "1. டிஜிட்டல் தயாரிப்புகள்",
+                    content: "டிஜிட்டல் தயாரிப்புகளின் (வீடியோ பாடப்பிரிவுகள்) தன்மையால், தயாரிப்பை அணுகிய பிறகு அல்லது பதிவிறக்கம் செய்த பிறகு நாங்கள் பொதுவாகப் பணத்தைத் திரும்பப் பெறுவதில்லை."
+                },
+                eligibility: {
+                    title: "2. கட்டணத்தைத் திரும்பப் பெறுவதற்கான தகுதி",
+                    content: "பின்வரும் சூழ்நிலைகளில் பணத்தைத் திரும்பப் பெறுவது பரிசீலிக்கப்படலாம்:",
+                    items: [
+                        "பாடநெறி உள்ளடக்கம் தொழில்நுட்ப ரீதியாகக் குறைபாடுடையது அல்லது அணுக முடியாதது.",
+                        "நீங்கள் தவறுதலாக ஒரே பாடப்பிரிவை இரண்டு முறை வாங்கிவிட்டீர்கள்.",
+                        "உங்கள் கணக்கு விவரங்களைப் பயன்படுத்தி அங்கீகரிக்கப்படாத கொள்முதல் செய்யப்பட்டது (ஆதாரம் தேவை)."
+                    ],
+                    note: "வாங்கிய 7 நாட்களுக்குள் கோரிக்கைகள் வைக்கப்பட வேண்டும்."
+                },
+                request: {
+                    title: "3. பணத்தைத் திரும்பப் பெறுவது எப்படி",
+                    content: "பணத்தைத் திரும்பப் பெற, உங்கள் ஆர்டர் விவரங்கள் மற்றும் காரணத்துடன் எங்கள் ஆதரவுக் குழுவைத் தொடர்பு கொள்ளவும். 48 வணிக மணிநேரத்திற்குள் அனைத்துக் கோரிக்கைகளையும் மதிப்பாய்வு செய்வதை நோக்கமாகக் கொண்டுள்ளோம்."
+                },
+                cancellation: {
+                    title: "4. ரத்து செய்தல்",
+                    content: "தொடர் சந்தாக்களுக்கு (பொருந்தினால்), நீங்கள் எப்போது வேண்டுமானாலும் ரத்து செய்யலாம். தற்போதைய பில்லிங் காலத்தின் முடிவு வரை உங்கள் அணுகல் தொடரும்."
+                }
+            }
+        },
+        contactPage: {
+            title: "எங்களுக்கு ஒரு செய்தியை அனுப்பவும்",
+            successTitle: "செய்தி அனுப்பப்பட்டது!",
+            successDesc: "நாங்கள் விரைவில் உங்களைத் தொடர்புகொள்வோம்.",
+            form: {
+                name: "பெயர்",
+                namePlaceholder: "உங்கள் பெயர்",
+                email: "மின்னஞ்சல்",
+                emailPlaceholder: "you@example.com",
+                subject: "பொருள்",
+                subjectPlaceholder: "நாங்கள் எவ்வாறு உதவ முடியும்?",
+                message: "செய்தி",
+                messagePlaceholder: "உங்கள் செய்தியை இங்கே எழுதவும்...",
+                sendButton: "செய்தியை அனுப்பவும்",
+                sending: "அனுப்பப்படுகிறது..."
+            },
+            info: {
+                title: "தொடர்பு கொள்ள",
+                subtitle: "எங்கள் பயிற்சிகள் பற்றி ஏதேனும் கேள்விகள் உள்ளதா (அல்லது) உதவி தேவையா? உங்கள் ஆன்மீகப் பயணத்தில் உங்களுக்கு உதவ நாங்கள் இருக்கிறோம்.",
+                emailTitle: "எங்களுக்கு மின்னஞ்சல் அனுப்புங்கள்",
+                callTitle: "எங்களை அழைக்கவும்",
+                callTime: "திங்கள்-வெள்ளி காலை 9 மணி முதல் மாலை 6 மணி வரை IST",
+                visitTitle: "எங்களைப் பார்வையிடவும்",
+                address: "123 ஆன்மீக அவென்யூ, அண்ணா நகர், சென்னை, தமிழ்நாடு 600040",
+                returnHome: "முகப்புக்குத் திரும்பு"
+            }
         },
         auth: {
             signin: "உள்நுழைய",

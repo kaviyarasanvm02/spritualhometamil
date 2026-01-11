@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
+import { sendOrderConfirmationEmail } from "@/lib/mail";
 
 export async function POST(req: Request) {
     const session = await getSession();
@@ -25,7 +26,10 @@ export async function POST(req: Request) {
             }
         });
 
+        const orderAmount = 0; // TODO: Fetch video price or pass from frontend
+
         // Grant Access
+
         await prisma.userVideo.create({
             data: {
                 userId: session.id,
@@ -33,6 +37,9 @@ export async function POST(req: Request) {
                 accessGranted: true,
             }
         });
+
+        // Send confirmation email
+        await sendOrderConfirmationEmail(session.email, "ORDER-" + Date.now(), orderAmount);
 
         return NextResponse.json({ success: true });
     } catch (error) {

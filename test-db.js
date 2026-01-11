@@ -12,8 +12,16 @@ async function checkConnection() {
     try {
         const client = await pool.connect();
         console.log("✅ Successfully connected to PostgreSQL!");
-        const res = await client.query('SELECT NOW()');
-        console.log("Time from DB:", res.rows[0]);
+
+        console.log("Checking for 'Video' table...");
+        try {
+            const res = await client.query('SELECT * FROM "Video" ORDER BY "createdAt" DESC');
+            console.log(`Found ${res.rowCount} videos:`);
+            console.log(JSON.stringify(res.rows, null, 2));
+        } catch (e) {
+            console.error("Query failed:", e.message);
+        }
+
         client.release();
     } catch (err) {
         console.error("❌ Connection failed:", err.message);

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAuth } from "@/components/AuthProvider";
 import { useLanguage } from "@/components/LanguageProvider";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { User, Mail, Lock, Loader2, ArrowRight } from "lucide-react";
 
@@ -44,10 +45,16 @@ export default function RegisterPage() {
 
     return (
         <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-            {/* Background Effects */}
-            <div className="absolute inset-0">
-                <div className="absolute top-0 right-1/4 w-96 h-96 bg-amber-500/20 rounded-full blur-[100px]" />
-                <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px]" />
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/spiritual-bg.png"
+                    alt="Spiritual Background"
+                    fill
+                    className="object-cover opacity-40"
+                    priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-bl from-gray-900/95 via-gray-900/80 to-purple-900/40" />
             </div>
 
             <div className="max-w-md w-full space-y-8 relative z-10 p-8 bg-gray-800/50 backdrop-blur-xl rounded-2xl border border-white/10 shadow-2xl">

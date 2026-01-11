@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { hashPassword, signToken } from "@/lib/auth";
 import { cookies } from "next/headers";
+import { sendWelcomeEmail } from "@/lib/mail";
 
 export async function POST(req: Request) {
     try {
@@ -29,6 +30,8 @@ export async function POST(req: Request) {
                 // First user can be admin, or manual DB update. Default is USER.
             },
         });
+
+        await sendWelcomeEmail(user.email, user.name || "User");
 
         const token = signToken({ id: user.id, email: user.email, role: user.role });
         const cookieStore = await cookies();

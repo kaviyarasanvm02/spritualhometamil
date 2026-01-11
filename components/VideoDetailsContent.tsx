@@ -15,9 +15,10 @@ interface VideoDetailsContentProps {
     };
     hasAccess: boolean;
     signedUrl: string | null;
+    isAdmin?: boolean;
 }
 
-export default function VideoDetailsContent({ video, hasAccess, signedUrl }: VideoDetailsContentProps) {
+export default function VideoDetailsContent({ video, hasAccess, signedUrl, isAdmin }: VideoDetailsContentProps) {
     const { t } = useLanguage();
 
     return (
@@ -61,7 +62,9 @@ export default function VideoDetailsContent({ video, hasAccess, signedUrl }: Vid
                     <div className="flex items-center justify-between mb-6">
                         <span className="text-2xl font-bold text-amber-600">₹{video.price}</span>
                         {hasAccess ? (
-                            <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">{t.videoDetails.purchased}</span>
+                            <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
+                                {t.videoDetails.purchased} {isAdmin && "(Admin Access)"}
+                            </span>
                         ) : (
                             <span className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm font-medium">{t.videoDetails.premium}</span>
                         )}
@@ -69,8 +72,11 @@ export default function VideoDetailsContent({ video, hasAccess, signedUrl }: Vid
 
                     <p className="text-gray-600 mb-8 whitespace-pre-wrap">{video.description}</p>
 
-                    {!hasAccess && (
+                    {(!hasAccess || isAdmin) && (
                         <div className="border-t pt-6 border-amber-50">
+                            {isAdmin && hasAccess && (
+                                <p className="text-sm text-amber-600 mb-2 font-semibold">Admin Preview: Payment Section</p>
+                            )}
                             <BuyButton videoId={video.id} price={video.price} />
                             <p className="text-xs text-center text-gray-500 mt-3">
                                 {t.videoDetails.securePayment}

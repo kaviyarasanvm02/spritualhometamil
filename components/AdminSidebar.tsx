@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, FileVideo, ShoppingCart, LogOut, ArrowLeft, Users, X } from "lucide-react";
+import { LayoutDashboard, FileVideo, ShoppingCart, LogOut, ArrowLeft, Users, X, Mail } from "lucide-react";
 import Image from "next/image";
 
 const navItems = [
@@ -11,6 +11,7 @@ const navItems = [
     { name: "Videos", href: "/admin/videos", icon: FileVideo },
     { name: "Users", href: "/admin/users", icon: Users },
     { name: "Orders", href: "/admin/orders", icon: ShoppingCart },
+    { name: "Messages", href: "/admin/messages", icon: Mail },
 ];
 
 interface AdminSidebarProps {

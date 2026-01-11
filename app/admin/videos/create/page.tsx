@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { upload } from '@vercel/blob/client';
 
 export default function CreateVideoPage() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
     const [file, setFile] = useState<File | null>(null);
+    const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
     const [videoSource, setVideoSource] = useState<"file" | "vimeo">("file");
     const [vimeoId, setVimeoId] = useState("");
     const [uploading, setUploading] = useState(false);
@@ -19,44 +21,53 @@ export default function CreateVideoPage() {
         }
     };
 
+    const handleThumbnailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setThumbnailFile(e.target.files[0]);
+        }
+    };
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         let videoKey = "";
-
-        if (videoSource === "file") {
-            if (!file) return alert("Please select a video file");
-            setUploading(true);
-
-            try {
-                // S3 Upload Flow
-                const presignRes = await fetch("/api/s3/signed-url", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ filename: file.name, contentType: file.type }),
-                });
-                const { url, key } = await presignRes.json();
-                if (!url) throw new Error("Failed to get upload URL");
-
-                await fetch(url, {
-                    method: "PUT",
-                    body: file,
-                    headers: { "Content-Type": file.type },
-                });
-                videoKey = key;
-            } catch (err) {
-                console.error(err);
-                alert("Upload Failed");
-                setUploading(false);
-                return;
-            }
-        } else {
-            // Vimeo ID Flow
-            if (!vimeoId) return alert("Please enter a Vimeo ID");
-            videoKey = vimeoId;
-        }
+        let thumbnailUrl = null;
+        setUploading(true);
 
         try {
+            // Upload Thumbnail if exists
+            if (thumbnailFile) {
+                const thumbBlob = await upload(thumbnailFile.name, thumbnailFile, {
+                    access: 'public',
+                    handleUploadUrl: '/api/upload',
+                });
+                thumbnailUrl = thumbBlob.url;
+            }
+
+            if (videoSource === "file") {
+                if (!file) {
+                    alert("Please select a video file");
+                    setUploading(false);
+                    return;
+                }
+
+                // Vercel Blob Upload
+                const newBlob = await upload(file.name, file, {
+                    access: 'public',
+                    handleUploadUrl: '/api/upload',
+                });
+
+                videoKey = newBlob.url;
+            } else {
+                // Vimeo ID Flow
+                if (!vimeoId) {
+                    alert("Please enter a Vimeo ID");
+                    setUploading(false);
+                    return;
+                }
+                videoKey = vimeoId;
+            }
+
             // Save to DB
             const dbRes = await fetch("/api/videos", {
                 method: "POST",
@@ -65,7 +76,8 @@ export default function CreateVideoPage() {
                     title,
                     description,
                     price: parseFloat(price),
-                    videoUrl: videoKey, // Storing S3 key OR Vimeo ID
+                    videoUrl: videoKey,
+                    thumbnail: thumbnailUrl,
                 }),
             });
 
@@ -129,6 +141,17 @@ export default function CreateVideoPage() {
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                     />
+                </div>
+
+                <div>
+                    <label className="block text-sm font-medium text-gray-700">Thumbnail Image</label>
+                    <input
+                        type="file"
+                        accept="image/*"
+                        className="mt-1 block w-full"
+                        onChange={handleThumbnailChange}
+                    />
+                    <p className="text-xs text-gray-500 mt-1">Upload an image to be shown on the video card.</p>
                 </div>
 
                 {videoSource === "file" ? (

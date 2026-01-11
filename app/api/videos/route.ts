@@ -1,6 +1,13 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
+import fs from 'fs';
+import path from 'path';
+
+function log(message: string) {
+    const logPath = path.join(process.cwd(), 'debug-api.log');
+    fs.appendFileSync(logPath, `${new Date().toISOString()}: ${message}\n`);
+}
 
 export async function POST(req: Request) {
     const session = await getSession();
@@ -9,7 +16,9 @@ export async function POST(req: Request) {
     }
 
     try {
-        const { title, description, price, videoUrl } = await req.json();
+        const body = await req.json();
+        log(`POST /api/videos Payload: ${JSON.stringify(body)}`);
+        const { title, description, price, videoUrl, thumbnail } = body;
 
         const video = await prisma.video.create({
             data: {
@@ -17,11 +26,14 @@ export async function POST(req: Request) {
                 description,
                 price,
                 videoUrl,
+                thumbnail,
             },
         });
+        log(`Created Video: ${JSON.stringify(video)}`);
 
         return NextResponse.json({ video });
     } catch (error) {
+        log(`Create Video Error: ${error}`);
         console.error("Create Video Error:", error);
         return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
     }
