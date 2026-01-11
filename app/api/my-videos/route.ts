@@ -14,7 +14,7 @@ export async function GET() {
             include: { video: true }
         });
 
-        const videos = userVideos.map(uv => uv.video);
+        const videos = userVideos.map((uv: any) => uv.video);
 
         return NextResponse.json({ videos });
     } catch (error) {
