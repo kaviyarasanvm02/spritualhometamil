@@ -1,10 +1,16 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = process.env.RESEND_API_KEY
+    ? new Resend(process.env.RESEND_API_KEY)
+    : null;
 
 const EMAIL_FROM = 'Spiritual Home Tamil <onboarding@resend.dev>'; // TODO: Update with verified domain
 
 export const sendWelcomeEmail = async (email: string, name: string) => {
+    if (!resend) {
+        console.log('Resend API key missing, skipping email.');
+        return { success: false, error: 'Resend API Key Missing' };
+    }
     try {
         const data = await resend.emails.send({
             from: EMAIL_FROM,
@@ -24,6 +30,7 @@ export const sendWelcomeEmail = async (email: string, name: string) => {
 };
 
 export const sendOrderConfirmationEmail = async (email: string, orderId: string, amount: number) => {
+    if (!resend) return { success: false, error: 'Resend API Key Missing' };
     try {
         const data = await resend.emails.send({
             from: EMAIL_FROM,
@@ -44,6 +51,7 @@ export const sendOrderConfirmationEmail = async (email: string, orderId: string,
 };
 
 export const sendContactFormReceiptEmail = async (email: string, name: string) => {
+    if (!resend) return { success: false, error: 'Resend API Key Missing' };
     try {
         const data = await resend.emails.send({
             from: EMAIL_FROM,
@@ -62,6 +70,7 @@ export const sendContactFormReceiptEmail = async (email: string, name: string) =
 };
 
 export const sendAdminNotificationEmail = async (details: { name: string; email: string; message: string }) => {
+    if (!resend) return { success: false, error: 'Resend API Key Missing' };
     try {
         // Assuming there's an ADMIN_EMAIL env var, or hardcoded for now
         const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@spiritualhometamil.com';
