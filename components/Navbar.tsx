@@ -37,9 +37,12 @@ export default function Navbar() {
     const isActive = (path: string) => pathname === path;
 
     // improved text visibility logic - Gold Theme
-    const textColor = isScrolled ? "text-gray-800" : "text-gray-100";
-    const hoverColor = isScrolled ? "hover:text-amber-600" : "hover:text-amber-400";
-    const activeColor = isScrolled ? "text-amber-600 font-bold" : "text-amber-400 font-bold";
+    // Force scrolled style if not on homepage
+    const isActuallyScrolled = isScrolled || pathname !== "/";
+
+    const textColor = isActuallyScrolled ? "text-gray-800" : "text-gray-100";
+    const hoverColor = isActuallyScrolled ? "hover:text-amber-600" : "hover:text-amber-400";
+    const activeColor = isActuallyScrolled ? "text-amber-600 font-bold" : "text-amber-400 font-bold";
 
     // Hide Navbar on Admin pages
     if (pathname?.startsWith("/admin")) return null;
@@ -47,7 +50,7 @@ export default function Navbar() {
     return (
         <>
             <nav
-                className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${isScrolled
+                className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${isActuallyScrolled
                     ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-amber-100 py-3"
                     : "bg-transparent py-5"
                     }`}
@@ -68,7 +71,7 @@ export default function Navbar() {
                                     />
                                 </div>
                                 {/* Hidden text for SEO but visible if needed, currently hiding to prioritize logo */}
-                                <span className={`text-xl font-extrabold tracking-tight transition-colors hidden sm:block ${isScrolled ? "text-gray-900" : "text-white"}`}>
+                                <span className={`text-xl font-extrabold tracking-tight transition-colors hidden sm:block ${isActuallyScrolled ? "text-gray-900" : "text-white"}`}>
                                     Spiritual<span className="text-amber-500">Home</span>
                                 </span>
                             </Link>
@@ -99,7 +102,7 @@ export default function Navbar() {
                                 ))}
                             </div>
 
-                            <div className={`w-px h-6 ${isScrolled ? "bg-gray-300" : "bg-white/30"}`}></div>
+                            <div className={`w-px h-6 ${isActuallyScrolled ? "bg-gray-300" : "bg-white/30"}`}></div>
 
                             {/* Right Actions */}
                             <div className="flex items-center space-x-4">
@@ -108,7 +111,7 @@ export default function Navbar() {
                                 {user ? (
                                     <button
                                         onClick={logout}
-                                        className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${isScrolled
+                                        className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${isActuallyScrolled
                                             ? "bg-gray-100 text-gray-700 hover:bg-gray-200"
                                             : "bg-white/10 text-white hover:bg-white/20"
                                             }`}
@@ -140,7 +143,7 @@ export default function Navbar() {
                             <LanguageSwitcher />
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${isScrolled ? "text-gray-700 hover:text-amber-600" : "text-white hover:text-amber-400"}`}
+                                className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${isActuallyScrolled ? "text-gray-700 hover:text-amber-600" : "text-white hover:text-amber-400"}`}
                             >
                                 <span className="sr-only">Open main menu</span>
                                 {mobileMenuOpen ? (

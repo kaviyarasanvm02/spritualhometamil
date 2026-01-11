@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { LayoutDashboard, FileVideo, ShoppingCart, LogOut, ArrowLeft, Users } from "lucide-react";
+import { LayoutDashboard, FileVideo, ShoppingCart, LogOut, ArrowLeft, Users, X } from "lucide-react";
 import Image from "next/image";
 
 const navItems = [
@@ -13,12 +13,28 @@ const navItems = [
     { name: "Orders", href: "/admin/orders", icon: ShoppingCart },
 ];
 
-export default function AdminSidebar() {
+interface AdminSidebarProps {
+    isOpen?: boolean;
+    onClose?: () => void;
+}
+
+export default function AdminSidebar({ isOpen = false, onClose }: AdminSidebarProps) {
     const pathname = usePathname();
 
     return (
-        <div className="w-72 bg-gray-950 text-white min-h-screen flex flex-col border-r border-white/10 shadow-xl relative z-20">
-            <div className="p-8 border-b border-white/10 flex flex-col items-center">
+        <div className={cn(
+            "fixed inset-y-0 left-0 z-50 w-72 bg-gray-950 text-white flex flex-col border-r border-white/10 shadow-xl transition-transform duration-300 ease-in-out md:static md:translate-x-0",
+            isOpen ? "translate-x-0" : "-translate-x-full"
+        )}>
+            <div className="p-8 border-b border-white/10 flex flex-col items-center relative">
+                {/* Mobile Close Button */}
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white md:hidden"
+                >
+                    <X className="w-6 h-6" />
+                </button>
+
                 <div className="relative w-full h-12 mb-4">
                     <Image
                         src="/assets/logo.png"
@@ -39,6 +55,7 @@ export default function AdminSidebar() {
                         <Link
                             key={item.href}
                             href={item.href}
+                            onClick={() => onClose?.()}
                             className={cn(
                                 "group flex items-center gap-3 px-4 py-3.5 rounded-xl transition-all duration-200",
                                 isActive
@@ -65,3 +82,4 @@ export default function AdminSidebar() {
         </div>
     );
 }
+
