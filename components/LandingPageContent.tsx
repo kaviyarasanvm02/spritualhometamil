@@ -2,6 +2,7 @@
 
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
+import EbookSection from "@/components/EbookSection";
 import FreeResourcesSection from "@/components/FreeResourcesSection";
 import FreeCoursesSection from "@/components/FreeCoursesSection";
 import CourseTabs from "@/components/CourseTabs";
@@ -25,6 +26,7 @@ export default function LandingPageContent({ videos }: { videos: any[] }) {
         */}
             <Hero />
             <AboutSection />
+            <EbookSection />
             <FreeResourcesSection />
             <FreeCoursesSection />
             <VideoPreview />

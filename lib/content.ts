@@ -22,6 +22,15 @@ export const content = {
             description1: "I practice and teach the Law of Attraction with a deep understanding of spirituality.",
             description2: "I have helped 10,000+ people transform their lives through conscious manifestation and spiritual awareness.",
         },
+        ebook: {
+            title: "Free E-Books",
+            subtitle: "Download our free resources to support your spiritual journey.",
+            tamilTitle: "Spiritual Home Tamil (Tamil)",
+            tamilDesc: "Download our free ebook in Tamil to deepen your spiritual knowledge.",
+            englishTitle: "Spiritual Home Tamil (English)",
+            englishDesc: "Download our free ebook in English to deepen your spiritual knowledge.",
+            download: "Download PDF"
+        },
         platform: {
             title: "Platform",
             youtube: "YOUTUBE: 14,000 + subscribers",
@@ -301,6 +310,15 @@ export const content = {
             name: "நான் ஸ்டான்லி வருண், ஈர்ப்பு விதி (Law of Attraction) மற்றும் ஆன்மீகப் பயிற்சியாளர்.",
             description1: "நான் ஆன்மீகத்தின் ஆழமான புரிதலோடு ஈர்ப்பு விதியைக் கடைப்பிடித்து, பிறருக்கும் கற்றுத்தருகிறேன்.",
             description2: "விழிப்புணர்வு மேனிஃபெஸ்டேஷன் மற்றும் ஆன்மீகத் தெளிவு மூலம் 10,000-க்கும் மேற்பட்ட மக்கள் தங்கள் வாழ்க்கையை மாற்றிக்கொள்ள நான் உதவியுள்ளேன்.",
+        },
+        ebook: {
+            title: "இலவச இ-புத்தகங்கள்",
+            subtitle: "உங்கள் ஆன்மீகப் பயணத்திற்கு ஆதரவளிக்க எங்கள் இலவச வளங்களைப் பதிவிறக்குங்கள்.",
+            tamilTitle: "Spiritual Home Tamil (தமிழ்)",
+            tamilDesc: "உங்கள் ஆன்மீக அறிவை ஆழப்படுத்த எங்கள் இலவச மின்புத்தகத்தை தமிழில் பதிவிறக்கவும்.",
+            englishTitle: "Spiritual Home Tamil (ஆங்கிலம்)",
+            englishDesc: "உங்கள் ஆன்மீக அறிவை ஆழப்படுத்த எங்கள் இலவச மின்புத்தகத்தை ஆங்கிலத்தில் பதிவிறக்கவும்.",
+            download: "PDF பதிவிறக்கம்"
         },
         platform: {
             title: "தளம் (Platform)",
