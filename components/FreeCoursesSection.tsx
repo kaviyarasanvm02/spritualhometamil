@@ -37,7 +37,7 @@ export default function FreeCoursesSection() {
                         {/* Image Section */}
                         <div className="relative h-64 w-full overflow-hidden">
                             <Image
-                                src="/assets/ChatGPT Image Jan 7, 2026, 10_59_54 PM.png"
+                                src="/assets/miracle.png"
                                 alt={t.freeCourses.course1.title}
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -84,7 +84,7 @@ export default function FreeCoursesSection() {
                         {/* Image Section */}
                         <div className="relative h-64 w-full overflow-hidden">
                             <Image
-                                src="/assets/ChatGPT Image Jan 17, 2026, 01_08_03 AM.png"
+                                src="/assets/loa-program.png"
                                 alt={t.freeCourses.course2.title}
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-500"

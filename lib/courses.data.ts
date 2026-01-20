@@ -42,7 +42,7 @@ export const courses: Course[] = [
             en: "The Miracle Entering Into Your Life",
             ta: "உங்கள் வாழ்க்கையில் அதிசயம் நுழைகிறது"
         },
-        thumbnail: "/assets/ChatGPT Image Jan 7, 2026, 10_59_54 PM.png",
+        thumbnail: "/assets/miracle.png",
         content: {
             en: {
                 introTitle: "Introduction Video",
@@ -214,7 +214,7 @@ export const courses: Course[] = [
             en: "30 Days Law of Attraction Step by Step Guidance",
             ta: "30 நாட்கள் ஈர்ப்பு விதி படிப்படியான வழிகாட்டுதல்"
         },
-        thumbnail: "/assets/ChatGPT Image Jan 17, 2026, 01_08_03 AM.png",
+        thumbnail: "/assets/loa-program.png",
         content: {
             en: {
                 introTitle: "Intro Video",
@@ -331,7 +331,7 @@ export const courses: Course[] = [
             en: "Money Manifestation",
             ta: "பணம் ஈர்ப்பு"
         },
-        thumbnail: "/assets/ChatGPT Image Jan 17, 2026, 01_13_39 AM.png",
+        thumbnail: "/assets/money-manifestation.png",
         content: {
             en: {
                 introTitle: "Introduction Money",
@@ -368,7 +368,7 @@ export const courses: Course[] = [
             en: "Relationship Manifestation",
             ta: "உறவு ஈர்ப்பு"
         },
-        thumbnail: "/assets/ChatGPT Image Jan 17, 2026, 01_10_38 AM.png",
+        thumbnail: "/assets/relationship-manifestation.png",
         content: {
             en: {
                 introTitle: "Introduction of Relationship",
@@ -407,7 +407,7 @@ export const courses: Course[] = [
             en: "Job Manifestation",
             ta: "வேலை ஈர்ப்பு"
         },
-        thumbnail: "/assets/ChatGPT Image Jan 17, 2026, 01_09_16 AM.png",
+        thumbnail: "/assets/job-manifestation.png",
         content: {
             en: {
                 introTitle: "Introduction of Job",
@@ -444,7 +444,7 @@ export const courses: Course[] = [
             en: "Health Manifestation",
             ta: "ஆரோக்கிய ஈர்ப்பு"
         },
-        thumbnail: "/assets/ChatGPT Image Jan 17, 2026, 01_40_39 AM.png",
+        thumbnail: "/assets/health-manifestation.png",
         content: {
             en: {
                 introTitle: "Introduction of Health",
@@ -481,7 +481,7 @@ export const courses: Course[] = [
             en: "Find Your Passion",
             ta: "உங்கள் ஆர்வத்தைக் கண்டறியவும்"
         },
-        thumbnail: "/assets/ChatGPT Image Jan 8, 2026, 01_32_29 PM.png",
+        thumbnail: "/assets/find-your-passion.png",
         content: {
             en: {
                 introTitle: "Introduction of Purpose",
@@ -518,7 +518,7 @@ export const courses: Course[] = [
             en: "30 Days Full Law of Attraction Program",
             ta: "30 நாட்கள் முழு ஈர்ப்பு விதி பயிற்சி"
         },
-        thumbnail: "/assets/ChatGPT Image Jan 17, 2026, 01_08_03 AM.png", // Reusing asset for now
+        thumbnail: "/assets/loa-program.png", // Reusing asset for now
         content: {
             en: {
                 introTitle: "Introduction",
@@ -586,7 +586,7 @@ export const courses: Course[] = [
             en: "21 Days Consciousness Workshop",
             ta: "21 நாட்கள் விழிப்புணர்வு பட்டறை"
         },
-        thumbnail: "/assets/ChatGPT Image Jan 17, 2026, 01_13_39 AM.png", // Reusing asset for now
+        thumbnail: "/assets/money-manifestation.png", // Reusing asset for now
         content: {
             en: {
                 introTitle: "Introduction",
