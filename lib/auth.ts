@@ -1,4 +1,4 @@
-import bcrypt from "bcryptjs";
+import * as bcrypt from "bcryptjs";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import { cookies } from "next/headers";
 
