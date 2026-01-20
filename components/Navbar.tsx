@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { useAuth } from "./AuthProvider";
 import { useLanguage } from "./LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { ThemeToggle } from "./ThemeToggle";
 import { Menu, X, User, LogOut, LayoutDashboard, Library, PlayCircle } from "lucide-react";
 import { usePathname } from "next/navigation";
 
@@ -40,9 +41,9 @@ export default function Navbar() {
     // Force scrolled style if not on homepage
     const isActuallyScrolled = isScrolled || pathname !== "/";
 
-    const textColor = isActuallyScrolled ? "text-gray-800" : "text-gray-100";
-    const hoverColor = isActuallyScrolled ? "hover:text-amber-600" : "hover:text-amber-400";
-    const activeColor = isActuallyScrolled ? "text-amber-600 font-bold" : "text-amber-400 font-bold";
+    const textColor = isActuallyScrolled ? "text-gray-800 dark:text-gray-100" : "text-gray-100 dark:text-gray-100";
+    const hoverColor = isActuallyScrolled ? "hover:text-amber-600 dark:hover:text-amber-400" : "hover:text-amber-400";
+    const activeColor = isActuallyScrolled ? "text-amber-600 dark:text-amber-500 font-bold" : "text-amber-400 font-bold";
 
     // Hide Navbar on Admin pages
     if (pathname?.startsWith("/admin")) return null;
@@ -51,7 +52,7 @@ export default function Navbar() {
         <>
             <nav
                 className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${isActuallyScrolled
-                    ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-amber-100 py-3"
+                    ? "bg-white/95 dark:bg-gray-950/95 backdrop-blur-md shadow-lg border-b border-amber-100 dark:border-gray-800 py-3"
                     : "bg-transparent py-5"
                     }`}
             >
@@ -66,12 +67,12 @@ export default function Navbar() {
                                         src="/assets/logo.png"
                                         alt="Spiritual Home Tamil"
                                         fill
-                                        className="object-contain"
+                                        className="object-contain dark:brightness-125"
                                         priority
                                     />
                                 </div>
                                 {/* Hidden text for SEO but visible if needed, currently hiding to prioritize logo */}
-                                <span className={`text-xl font-extrabold tracking-tight transition-colors hidden sm:block ${isActuallyScrolled ? "text-gray-900" : "text-white"}`}>
+                                <span className={`text-xl font-extrabold tracking-tight transition-colors hidden sm:block ${isActuallyScrolled ? "text-gray-900 dark:text-white" : "text-white"}`}>
                                     Spiritual<span className="text-amber-500">Home</span>
                                 </span>
                             </Link>
@@ -102,17 +103,18 @@ export default function Navbar() {
                                 ))}
                             </div>
 
-                            <div className={`w-px h-6 ${isActuallyScrolled ? "bg-gray-300" : "bg-white/30"}`}></div>
+                            <div className={`w-px h-6 ${isActuallyScrolled ? "bg-gray-300 dark:bg-gray-700" : "bg-white/30"}`}></div>
 
                             {/* Right Actions */}
                             <div className="flex items-center space-x-4">
+                                <ThemeToggle />
                                 <LanguageSwitcher />
 
                                 {user ? (
                                     <button
                                         onClick={logout}
                                         className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-colors ${isActuallyScrolled
-                                            ? "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                                            ? "bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
                                             : "bg-white/10 text-white hover:bg-white/20"
                                             }`}
                                     >
@@ -140,10 +142,11 @@ export default function Navbar() {
 
                         {/* Mobile menu button */}
                         <div className="md:hidden flex items-center gap-4">
+                            <ThemeToggle />
                             <LanguageSwitcher />
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${isActuallyScrolled ? "text-gray-700 hover:text-amber-600" : "text-white hover:text-amber-400"}`}
+                                className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${isActuallyScrolled ? "text-gray-700 hover:text-amber-600 dark:text-gray-200 dark:hover:text-amber-400" : "text-white hover:text-amber-400"}`}
                             >
                                 <span className="sr-only">Open main menu</span>
                                 {mobileMenuOpen ? (

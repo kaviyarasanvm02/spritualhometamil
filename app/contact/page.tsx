@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 import ContactContent from "./ContactContent";
 import type { Metadata } from "next";
 
@@ -15,7 +15,7 @@ export default function ContactPage() {
     return (
         <div className="min-h-screen bg-gray-50 flex flex-col">
             <ContactContent />
-            <Footer />
+            {/* <Footer /> removed */}
         </div>
     );
 }

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import Footer from "@/components/Footer";
+// import Footer from "@/components/Footer";
 import { useLanguage } from "@/components/LanguageProvider";
 
 export default function PrivacyContent() {
@@ -74,7 +74,7 @@ export default function PrivacyContent() {
                     </div>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> removed */}
         </div>
     );
 }

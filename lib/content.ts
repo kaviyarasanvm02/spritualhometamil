@@ -60,7 +60,7 @@ export const content = {
                     "Episode 2. Nature Laws (30 Min)",
                     "Episode 3. Secret Key of Universe (30 Min)"
                 ],
-                cta: "Paid Course Details"
+                cta: "Start Course"
             },
             course2: {
                 title: "2. 30 LAW OF ATTRACTION DAYS STEP BY STEP GUIDANCE",
@@ -72,7 +72,7 @@ export const content = {
                     "Episode 3",
                     "Episode 30"
                 ],
-                cta: "Paid Course Details"
+                cta: "Start Course"
             }
         },
         paidCourses: {
@@ -166,7 +166,7 @@ export const content = {
                 contact: {
                     title: "5. Contact Us",
                     content: "If you have any questions about this privacy policy or our privacy practices, please contact us at:",
-                    email: "support@spiritualhometamil.com"
+                    email: "support@spritualhometamil.com"
                 }
             },
             terms: {
@@ -350,7 +350,7 @@ export const content = {
                     "எபிசோட் 2: இயற்கையின் விதிகள் - 30 நிமிடங்கள்",
                     "எபிசோட் 3: பிரபஞ்சத்தின் ரகசிய சாவி - 30 நிமிடங்கள்"
                 ],
-                cta: "கட்டணப் பயிற்சி விவரங்கள்"
+                cta: "பாடத்தைத் தொடங்குங்கள்"
             },
             course2: {
                 title: "2. 30 நாட்கள் ஈர்ப்பு விதி படிப்படியான வழிகாட்டுதல்",
@@ -362,7 +362,7 @@ export const content = {
                     "எபிசோட் 3",
                     "எபிசோட் 30"
                 ],
-                cta: "கட்டணப் பயிற்சி விவரங்கள்"
+                cta: "பாடத்தைத் தொடங்குங்கள்"
             }
         },
         paidCourses: {
@@ -456,7 +456,7 @@ export const content = {
                 contact: {
                     title: "5. எங்களைத் தொடர்பு கொள்ள",
                     content: "இந்தத் தனியுரிமைக் கொள்கையைப் பற்றி உங்களுக்கு ஏதேனும் கேள்விகள் இருந்தால், எங்களை இங்கே தொடர்பு கொள்ளவும்:",
-                    email: "support@spiritualhometamil.com"
+                    email: "support@spritualhometamil.com"
                 }
             },
             terms: {
