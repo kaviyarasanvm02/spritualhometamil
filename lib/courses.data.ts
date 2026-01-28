@@ -18,6 +18,13 @@ export interface CourseContent {
     }[];
 }
 
+export interface PricingOption {
+    duration: string;
+    price: number;
+    label?: string; // e.g. "Most Popular", "Best Value"
+    period: 'monthly' | '6_months' | '1_year' | 'lifetime';
+}
+
 export interface Course {
     slug: string;
     type: 'free' | 'paid';
@@ -27,6 +34,7 @@ export interface Course {
     };
     thumbnail: string;
     thumbnailKey?: string; // For matching existing assets
+    pricing?: PricingOption[];
     content: {
         en: CourseContent;
         ta: CourseContent;
@@ -323,7 +331,7 @@ export const courses: Course[] = [
         }
     },
 
-    // PAID COURSES
+    // PAID COURSES - STANDARD LEVEL
     {
         slug: "money-manifestation",
         type: 'paid',
@@ -332,6 +340,12 @@ export const courses: Course[] = [
             ta: "பணம் ஈர்ப்பு"
         },
         thumbnail: "/assets/money-manifestation.png",
+        pricing: [
+            { duration: "Monthly", price: 299, period: 'monthly' },
+            { duration: "6 Months", price: 599, period: '6_months' },
+            { duration: "1 Year", price: 999, period: '1_year' },
+            { duration: "Lifetime Access", price: 1499, period: 'lifetime' },
+        ],
         content: {
             en: {
                 introTitle: "Introduction Money",
@@ -369,6 +383,12 @@ export const courses: Course[] = [
             ta: "உறவு ஈர்ப்பு"
         },
         thumbnail: "/assets/relationship-manifestation.png",
+        pricing: [
+            { duration: "Monthly", price: 299, period: 'monthly' },
+            { duration: "6 Months", price: 599, period: '6_months' },
+            { duration: "1 Year", price: 999, period: '1_year' },
+            { duration: "Lifetime Access", price: 1499, period: 'lifetime' },
+        ],
         content: {
             en: {
                 introTitle: "Introduction of Relationship",
@@ -408,6 +428,12 @@ export const courses: Course[] = [
             ta: "வேலை ஈர்ப்பு"
         },
         thumbnail: "/assets/job-manifestation.png",
+        pricing: [
+            { duration: "Monthly", price: 299, period: 'monthly' },
+            { duration: "6 Months", price: 599, period: '6_months' },
+            { duration: "1 Year", price: 999, period: '1_year' },
+            { duration: "Lifetime Access", price: 1499, period: 'lifetime' },
+        ],
         content: {
             en: {
                 introTitle: "Introduction of Job",
@@ -445,6 +471,12 @@ export const courses: Course[] = [
             ta: "ஆரோக்கிய ஈர்ப்பு"
         },
         thumbnail: "/assets/health-manifestation.png",
+        pricing: [
+            { duration: "Monthly", price: 299, period: 'monthly' },
+            { duration: "6 Months", price: 599, period: '6_months' },
+            { duration: "1 Year", price: 999, period: '1_year' },
+            { duration: "Lifetime Access", price: 1499, period: 'lifetime' },
+        ],
         content: {
             en: {
                 introTitle: "Introduction of Health",
@@ -482,6 +514,12 @@ export const courses: Course[] = [
             ta: "உங்கள் ஆர்வத்தைக் கண்டறியவும்"
         },
         thumbnail: "/assets/find-your-passion.png",
+        pricing: [
+            { duration: "Monthly", price: 299, period: 'monthly' },
+            { duration: "6 Months", price: 599, period: '6_months' },
+            { duration: "1 Year", price: 999, period: '1_year' },
+            { duration: "Lifetime Access", price: 1499, period: 'lifetime' },
+        ],
         content: {
             en: {
                 introTitle: "Introduction of Purpose",
@@ -511,14 +549,22 @@ export const courses: Course[] = [
             }
         }
     },
+
+    // PREMIUM COURSES
     {
         slug: "30-days-loa",
         type: 'paid', // Premium
         title: {
-            en: "30 Days Full Law of Attraction Program",
+            en: "30-Day Transformation Program",
             ta: "30 நாட்கள் முழு ஈர்ப்பு விதி பயிற்சி"
         },
-        thumbnail: "/assets/loa-program.png", // Reusing asset for now
+        thumbnail: "/assets/loa-program.png",
+        pricing: [
+            { duration: "1 Month Access", price: 1499, period: 'monthly' },
+            { duration: "6 Months Access", price: 4499, period: '6_months' },
+            { duration: "1 Year Access", price: 8999, period: '1_year', label: "Best Value" },
+            { duration: "Lifetime Access", price: 12999, period: 'lifetime' },
+        ],
         content: {
             en: {
                 introTitle: "Introduction",
@@ -581,12 +627,18 @@ export const courses: Course[] = [
     },
     {
         slug: "21-days-consciousness",
-        type: 'paid', // Premium
+        type: 'paid', // Premium - Spiritual Awakening Course
         title: {
-            en: "21 Days Consciousness Workshop",
-            ta: "21 நாட்கள் விழிப்புணர்வு பட்டறை"
+            en: "Spiritual Awakening Course",
+            ta: "ஆன்மீக விழிப்புணர்வு பயிற்சி (21 நாட்கள்)"
         },
-        thumbnail: "/assets/money-manifestation.png", // Reusing asset for now
+        thumbnail: "/assets/money-manifestation.png",
+        pricing: [
+            { duration: "1 Month Access", price: 999, period: 'monthly' },
+            { duration: "6 Months Access", price: 2999, period: '6_months' },
+            { duration: "1 Year Access", price: 5999, period: '1_year' },
+            { duration: "Lifetime Access", price: 8999, period: 'lifetime' },
+        ],
         content: {
             en: {
                 introTitle: "Introduction",
@@ -607,6 +659,56 @@ export const courses: Course[] = [
                         ]
                     }
                 ]
+            },
+            ta: { introTitle: "Intro", episodes: [], sections: [] }
+        }
+    },
+
+    // BUNDLES / COMBOS
+    {
+        slug: "all-5-courses-combo",
+        type: 'paid',
+        title: {
+            en: "ALL 5 COURSES COMBO ACCESS",
+            ta: "அனைத்து 5 பயிற்சிகளும்"
+        },
+        thumbnail: "/assets/bundle-all-5.png", // Verify if asset exists or use placeholder
+        pricing: [
+            { duration: "Monthly", price: 999, period: 'monthly' },
+            { duration: "6 Months", price: 1999, period: '6_months' },
+            { duration: "1 Year", price: 2999, period: '1_year', label: "Most Popular" },
+            { duration: "Lifetime Access", price: 4999, period: 'lifetime' },
+        ],
+        content: {
+            en: {
+                introTitle: "All 5 Standard Courses",
+                episodes: [],
+                description: "Get access to all 5 standard manifestation courses: Money, Relationship, Job, Health, and Passion.",
+                sections: []
+            },
+            ta: { introTitle: "Intro", episodes: [], sections: [] }
+        }
+    },
+    {
+        slug: "transformation-spiritual-combo",
+        type: 'paid',
+        title: {
+            en: "COMBO COURSE – ONE PURCHASE",
+            ta: "காம்போ பயிற்சி (30 நாட்கள் + ஆன்மீகம்)"
+        },
+        thumbnail: "/assets/bundle-premium.png", // Verify if asset exists or use placeholder
+        pricing: [
+            { duration: "1 Month Access", price: 1999, period: 'monthly' },
+            { duration: "6 Months Access", price: 5999, period: '6_months' },
+            { duration: "1 Year Access", price: 10999, period: '1_year', label: "Most Popular" },
+            { duration: "Lifetime Access", price: 14999, period: 'lifetime' },
+        ],
+        content: {
+            en: {
+                introTitle: "30-Day Transformation + Spiritual Awakening",
+                episodes: [],
+                description: "Access both the 30-Day Transformation Program and the Spiritual Awakening Course.",
+                sections: []
             },
             ta: { introTitle: "Intro", episodes: [], sections: [] }
         }

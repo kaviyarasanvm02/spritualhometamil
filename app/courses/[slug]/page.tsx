@@ -1,11 +1,18 @@
 "use client";
 
-import { courses } from "@/lib/courses.data";
+import { courses, PricingOption } from "@/lib/courses.data";
 import { useParams, useRouter } from "next/navigation";
 import { useLanguage } from "@/components/LanguageProvider";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { ArrowLeft, PlayCircle, Lock, MonitorPlay, Sparkles, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowLeft, PlayCircle, MonitorPlay, Sparkles, ChevronDown, ChevronUp, CheckCircle, AlertCircle } from "lucide-react";
+import BuyButton from "@/components/BuyButton";
+
+interface Video {
+    id: string;
+    title: string;
+    price: number;
+}
 
 export default function CoursePage() {
     const params = useParams();
@@ -13,9 +20,41 @@ export default function CoursePage() {
     const { language } = useLanguage();
 
     const [expandedEpisode, setExpandedEpisode] = useState<number | null>(null);
+    const [selectedPlan, setSelectedPlan] = useState<PricingOption | null>(null);
+    const [matchingVideoId, setMatchingVideoId] = useState<string | null>(null);
+    const [isLoadingVideo, setIsLoadingVideo] = useState(false);
 
     const slug = params.slug as string;
     const course = courses.find((c) => c.slug === slug);
+
+    useEffect(() => {
+        if (course?.type === 'paid') {
+            setIsLoadingVideo(true);
+            fetch('/api/videos')
+                .then(res => res.json())
+                .then((data: { videos: Video[] }) => {
+                    const match = data.videos?.find((v) =>
+                        v.title.toLowerCase().trim() === course.title.en.toLowerCase().trim() ||
+                        v.title.toLowerCase().includes(course.title.en.toLowerCase()) // Fallback: partial match
+                    );
+                    if (match) {
+                        setMatchingVideoId(match.id);
+                    }
+                })
+                .catch(err => console.error("Failed to fetch videos:", err))
+                .finally(() => setIsLoadingVideo(false));
+        }
+    }, [course]);
+
+    // Set default plan
+    useEffect(() => {
+        if (course?.pricing && course.pricing.length > 0 && !selectedPlan) {
+            // Default to 1 Year (usually most popular) or the first one
+            const defaultPlan = course.pricing.find(p => p.label === 'Most Popular' || p.label === 'Best Value') || course.pricing[0];
+            setSelectedPlan(defaultPlan);
+        }
+    }, [course, selectedPlan]);
+
 
     const toggleEpisode = (idx: number) => {
         setExpandedEpisode(expandedEpisode === idx ? null : idx);
@@ -36,7 +75,7 @@ export default function CoursePage() {
     }
 
     const content = language === 'ta' ? course.content.ta : course.content.en;
-    // Fallback to English if Tamil content is empty (partial implementation safeguard)
+    // Fallback to English if Tamil content is empty
     const displayContent = content.episodes.length > 0 ? content : course.content.en;
     const title = language === 'ta' ? course.title.ta : course.title.en;
 
@@ -97,10 +136,57 @@ export default function CoursePage() {
                                 </p>
                             )}
 
-                            {course.type === 'paid' && (
-                                <button className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-xl font-bold shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2">
-                                    Enroll Now
-                                </button>
+                            {course.type === 'paid' && course.pricing && (
+                                <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
+                                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Choose Access Plan</h3>
+
+                                    <div className="space-y-3 mb-6">
+                                        {course.pricing.map((plan, idx) => (
+                                            <button
+                                                key={idx}
+                                                onClick={() => setSelectedPlan(plan)}
+                                                className={`w-full flex items-center justify-between p-4 rounded-xl border-2 transition-all ${selectedPlan === plan
+                                                        ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20'
+                                                        : 'border-gray-100 dark:border-gray-700 hover:border-amber-200 dark:hover:border-amber-800'
+                                                    }`}
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${selectedPlan === plan ? 'border-amber-500' : 'border-gray-300 dark:border-gray-500'
+                                                        }`}>
+                                                        {selectedPlan === plan && <div className="w-2.5 h-2.5 bg-amber-500 rounded-full" />}
+                                                    </div>
+                                                    <span className={`font-medium ${selectedPlan === plan ? 'text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400'}`}>
+                                                        {plan.duration}
+                                                    </span>
+                                                    {plan.label && (
+                                                        <span className="px-2 py-0.5 text-xs font-bold text-amber-700 bg-amber-100 rounded-full">
+                                                            {plan.label}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                                <span className={`font-bold ${selectedPlan === plan ? 'text-amber-600' : 'text-gray-900 dark:text-white'}`}>
+                                                    ₹{plan.price.toLocaleString('en-IN')}
+                                                </span>
+                                            </button>
+                                        ))}
+                                    </div>
+
+                                    {matchingVideoId ? (
+                                        selectedPlan && (
+                                            <div className="mt-4">
+                                                <BuyButton videoId={matchingVideoId} price={selectedPlan.price} />
+                                                <p className="text-xs text-gray-500 mt-3 text-center">
+                                                    Secure payment via Razorpay. Immediate access granted.
+                                                </p>
+                                            </div>
+                                        )
+                                    ) : (
+                                        <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-200 rounded-xl text-sm flex items-center gap-2">
+                                            <AlertCircle className="w-5 h-5 shrink-0" />
+                                            {isLoadingVideo ? 'Loading availability...' : 'Course enrollment is currently closed.'}
+                                        </div>
+                                    )}
+                                </div>
                             )}
                         </div>
                     </div>

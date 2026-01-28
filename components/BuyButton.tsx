@@ -52,6 +52,7 @@ export default function BuyButton({ videoId, price }: BuyButtonProps) {
                             orderId: response.razorpay_order_id,
                             signature: response.razorpay_signature,
                             videoId: videoId,
+                            amount: price,
                         }),
                     });
 

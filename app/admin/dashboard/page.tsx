@@ -1,62 +1,137 @@
 "use client";
 
-import { Users, Video, DollarSign, TrendingUp, MoreVertical, Download, ArrowRight } from "lucide-react";
+import { Users, Video, DollarSign, TrendingUp, MoreVertical, Download, ArrowRight, Loader2 } from "lucide-react";
 import * as XLSX from 'xlsx';
 import { useRouter } from "next/navigation";
 import Link from 'next/link';
+import { useEffect, useState } from "react";
 
 export default function AdminDashboard() {
     const router = useRouter();
-
-    // Simulated data
-    const stats = [
+    const [stats, setStats] = useState([
         {
             name: 'Total Revenue',
-            value: '₹45,231',
+            value: '₹0',
             icon: DollarSign,
-            change: '+20.1%',
-            trend: 'up',
+            change: '-',
+            trend: 'neutral',
             bg: 'bg-gradient-to-br from-amber-500 to-amber-600',
             iconBg: 'bg-white/20',
             text: 'text-white',
-            desc: 'Total earnings this month'
+            desc: 'Total earnings'
         },
         {
             name: 'Total Users',
-            value: '2,338',
+            value: '0',
             icon: Users,
-            change: '+15.1%',
-            trend: 'up',
+            change: '-',
+            trend: 'neutral',
             bg: 'bg-white',
             iconBg: 'bg-indigo-50',
             text: 'text-gray-900',
-            desc: 'Active registered users'
+            desc: 'Registered users'
         },
         {
             name: 'Active Videos',
-            value: '24',
+            value: '0',
             icon: Video,
-            change: '12 new',
+            change: '-',
             trend: 'neutral',
             bg: 'bg-white',
             iconBg: 'bg-amber-50',
             text: 'text-gray-900',
-            desc: 'Videos live on platform'
+            desc: 'Videos on platform'
         },
-    ];
+    ]);
 
-    const recentOrders = [
-        { id: '#ORD-001', user: 'Vicky', course: 'Manifestation Masterclass', amount: '₹499', status: 'Completed', date: '2 mins ago', avatar: 'V' },
-        { id: '#ORD-002', user: 'Priya S.', course: 'Chakra Healing', amount: '₹999', status: 'Pending', date: '15 mins ago', avatar: 'P' },
-        { id: '#ORD-003', user: 'Rahul K.', course: 'Manifestation Masterclass', amount: '₹499', status: 'Completed', date: '1 hour ago', avatar: 'R' },
-        { id: '#ORD-004', user: 'Anita R.', course: 'Law of Attraction Basic', amount: '₹0', status: 'Completed', date: '3 hours ago', avatar: 'A' },
-        { id: '#ORD-005', user: 'Suresh M.', course: 'Meditation Basics', amount: '₹299', status: 'Failed', date: '5 hours ago', avatar: 'S' },
-    ];
+    const [recentOrders, setRecentOrders] = useState<any[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchDashboardData() {
+            try {
+                const [usersRes, videosRes, ordersRes] = await Promise.all([
+                    fetch('/api/users'),
+                    fetch('/api/videos'),
+                    fetch('/api/orders')
+                ]);
+
+                const usersData = await usersRes.json();
+                const videosData = await videosRes.json();
+                const ordersData = await ordersRes.json();
+
+                if (usersData.users && videosData.videos && ordersData.orders) {
+                    // Calculate Revenue
+                    const totalRevenue = ordersData.orders
+                        .filter((o: any) => o.status === 'PAID')
+                        .reduce((sum: number, o: any) => sum + (o.amount || 0), 0);
+
+                    // Update Stats
+                    setStats([
+                        {
+                            name: 'Total Revenue',
+                            value: `₹${totalRevenue.toLocaleString('en-IN')}`,
+                            icon: DollarSign,
+                            change: '+0%', // Dynamic change requires historical data, keeping placeholder
+                            trend: 'up',
+                            bg: 'bg-gradient-to-br from-amber-500 to-amber-600',
+                            iconBg: 'bg-white/20',
+                            text: 'text-white',
+                            desc: 'Total earnings'
+                        },
+                        {
+                            name: 'Total Users',
+                            value: usersData.users.length.toLocaleString(),
+                            icon: Users,
+                            change: `+${usersData.users.length}`,
+                            trend: 'up',
+                            bg: 'bg-white',
+                            iconBg: 'bg-indigo-50',
+                            text: 'text-gray-900',
+                            desc: 'Total registered'
+                        },
+                        {
+                            name: 'Active Videos',
+                            value: videosData.videos.length.toString(),
+                            icon: Video,
+                            change: `${videosData.videos.length} total`,
+                            trend: 'neutral',
+                            bg: 'bg-white',
+                            iconBg: 'bg-amber-50',
+                            text: 'text-gray-900',
+                            desc: 'Course videos'
+                        },
+                    ]);
+
+                    // Map Recent Orders
+                    const mappedOrders = ordersData.orders.slice(0, 10).map((order: any) => ({
+                        id: `#${order.id.slice(-6).toUpperCase()}`,
+                        realId: order.id,
+                        user: order.user?.name || 'Unknown',
+                        course: order.video?.title || 'Unknown Course',
+                        amount: `₹${(order.amount || 0).toLocaleString('en-IN')}`,
+                        status: order.status === 'PAID' ? 'Completed' : order.status,
+                        date: new Date(order.createdAt).toLocaleDateString('en-IN', {
+                            day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'
+                        }),
+                        avatar: (order.user?.name || 'U')[0].toUpperCase()
+                    }));
+                    setRecentOrders(mappedOrders);
+                }
+            } catch (error) {
+                console.error("Failed to fetch dashboard data:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchDashboardData();
+    }, []);
 
     const handleDownloadReport = () => {
         const wb = XLSX.utils.book_new();
         const dataForExcel = recentOrders.map(order => ({
-            "Order ID": order.id,
+            "Order ID": order.realId,
             "User": order.user,
             "Course": order.course,
             "Amount": order.amount,
@@ -67,6 +142,14 @@ export default function AdminDashboard() {
         XLSX.utils.book_append_sheet(wb, ws, "Recent Orders");
         XLSX.writeFile(wb, "admin_report.xlsx");
     };
+
+    if (loading) {
+        return (
+            <div className="flex h-screen items-center justify-center">
+                <Loader2 className="w-8 h-8 animate-spin text-amber-500" />
+            </div>
+        );
+    }
 
     return (
         <div className="space-y-8 animate-fade-in-up pb-10">
@@ -158,40 +241,48 @@ export default function AdminDashboard() {
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-100">
-                            {recentOrders.map((order) => (
-                                <tr key={order.id} className="hover:bg-gray-50/80 transition-colors group">
-                                    <td className="px-8 py-5 text-sm font-semibold text-gray-900">
-                                        {order.id}
-                                    </td>
-                                    <td className="px-8 py-5">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center text-amber-800 font-bold shadow-sm">
-                                                {order.avatar}
-                                            </div>
-                                            <span className="text-sm font-semibold text-gray-700">{order.user}</span>
-                                        </div>
-                                    </td>
-                                    <td className="px-8 py-5 text-sm text-gray-600 font-medium">
-                                        {order.course}
-                                    </td>
-                                    <td className="px-8 py-5 text-sm font-bold text-gray-900">
-                                        {order.amount}
-                                    </td>
-                                    <td className="px-8 py-5">
-                                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${order.status === 'Completed'
-                                            ? 'bg-green-100 text-green-700 border border-green-200'
-                                            : order.status === 'Pending'
-                                                ? 'bg-amber-100 text-amber-700 border border-amber-200'
-                                                : 'bg-red-100 text-red-700 border border-red-200'
-                                            }`}>
-                                            {order.status}
-                                        </span>
-                                    </td>
-                                    <td className="px-8 py-5 text-sm text-gray-500 font-medium text-right">
-                                        {order.date}
+                            {recentOrders.length === 0 ? (
+                                <tr>
+                                    <td colSpan={6} className="px-8 py-10 text-center text-gray-500">
+                                        No recent transactions found.
                                     </td>
                                 </tr>
-                            ))}
+                            ) : (
+                                recentOrders.map((order) => (
+                                    <tr key={order.id} className="hover:bg-gray-50/80 transition-colors group">
+                                        <td className="px-8 py-5 text-sm font-semibold text-gray-900">
+                                            {order.id}
+                                        </td>
+                                        <td className="px-8 py-5">
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center text-amber-800 font-bold shadow-sm">
+                                                    {order.avatar}
+                                                </div>
+                                                <span className="text-sm font-semibold text-gray-700">{order.user}</span>
+                                            </div>
+                                        </td>
+                                        <td className="px-8 py-5 text-sm text-gray-600 font-medium">
+                                            {order.course}
+                                        </td>
+                                        <td className="px-8 py-5 text-sm font-bold text-gray-900">
+                                            {order.amount}
+                                        </td>
+                                        <td className="px-8 py-5">
+                                            <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${order.status === 'Completed'
+                                                ? 'bg-green-100 text-green-700 border border-green-200'
+                                                : order.status === 'Pending'
+                                                    ? 'bg-amber-100 text-amber-700 border border-amber-200'
+                                                    : 'bg-red-100 text-red-700 border border-red-200'
+                                                }`}>
+                                                {order.status}
+                                            </span>
+                                        </td>
+                                        <td className="px-8 py-5 text-sm text-gray-500 font-medium text-right">
+                                            {order.date}
+                                        </td>
+                                    </tr>
+                                ))
+                            )}
                         </tbody>
                     </table>
                 </div>

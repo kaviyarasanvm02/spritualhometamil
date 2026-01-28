@@ -10,7 +10,7 @@ export async function POST(req: Request) {
     }
 
     try {
-        const { paymentId, videoId, orderId, signature } = await req.json();
+        const { paymentId, videoId, orderId, signature, amount } = await req.json();
 
         // Verify signature here usually for robust security (crypto check)
         // For now, we trust the client call after success, but IN PRODUCTION verify signature on backend.
@@ -21,12 +21,12 @@ export async function POST(req: Request) {
                 userId: session.id,
                 videoId,
                 paymentId,
-                amount: 0, // Should fetch real amount or pass it. Using 0 placeholder or need to look up video?
+                amount: Number(amount) || 0,
                 status: "PAID",
             }
         });
 
-        const orderAmount = 0; // TODO: Fetch video price or pass from frontend
+        const orderAmount = Number(amount) || 0;
 
         // Grant Access
 
@@ -58,11 +58,17 @@ export async function GET(req: Request) {
         const orders = await prisma.order.findMany({
             include: {
                 user: { select: { name: true, email: true } },
-                video: { select: { title: true } }
+                video: { select: { title: true, price: true } }
             },
             orderBy: { createdAt: 'desc' }
         });
-        return NextResponse.json({ orders });
+
+        const ordersWithPrice = orders.map(order => ({
+            ...order,
+            amount: order.amount > 0 ? order.amount : order.video.price
+        }));
+
+        return NextResponse.json({ orders: ordersWithPrice });
     } catch (error) {
         return NextResponse.json({ error: "Failed to fetch orders" }, { status: 500 });
     }
