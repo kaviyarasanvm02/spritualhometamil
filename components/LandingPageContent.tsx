@@ -31,7 +31,7 @@ export default function LandingPageContent({ videos }: { videos: any[] }) {
             <FreeResourcesSection />
             <FreeCoursesSection />
             <PaidCoursesSection />
-            {/* <VideoPreview /> */}
+            <VideoPreview />
             <CourseTabs videos={videos} />
             <PricingCard />
             <PaymentSection />

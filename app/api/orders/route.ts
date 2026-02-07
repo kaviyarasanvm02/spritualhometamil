@@ -10,7 +10,21 @@ export async function POST(req: Request) {
     }
 
     try {
-        const { paymentId, videoId, orderId, signature, amount } = await req.json();
+        const { paymentId, videoId, orderId, signature, amount, planPeriod } = await req.json();
+
+        // Calculate Expiration
+        let expiresAt: Date | null = null;
+        const now = new Date();
+
+        if (planPeriod === 'monthly') {
+            expiresAt = new Date(now.setDate(now.getDate() + 30));
+        } else if (planPeriod === '6_months') {
+            expiresAt = new Date(now.setDate(now.getDate() + 180));
+        } else if (planPeriod === '1_year') {
+            expiresAt = new Date(now.setDate(now.getDate() + 365));
+        } else if (planPeriod === 'lifetime') {
+            expiresAt = null;
+        }
 
         // Verify signature here usually for robust security (crypto check)
         // For now, we trust the client call after success, but IN PRODUCTION verify signature on backend.
@@ -29,13 +43,13 @@ export async function POST(req: Request) {
         const orderAmount = Number(amount) || 0;
 
         // Grant Access
-
         await prisma.userVideo.create({
             data: {
                 userId: session.id,
                 videoId,
                 accessGranted: true,
-            }
+                expiresAt: expiresAt
+            } as any
         });
 
         // Send confirmation email

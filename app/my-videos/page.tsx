@@ -13,6 +13,7 @@ interface Video {
     videoUrl: string;
     thumbnail: string | null;
     price: number;
+    expiresAt: string | null;
 }
 
 export default function MyVideosPage() {
@@ -116,51 +117,83 @@ export default function MyVideosPage() {
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {videos.map((video) => (
-                            <div key={video.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:-translate-y-1 flex flex-col h-full">
-                                {/* Thumbnail */}
-                                <div className="relative aspect-video bg-gray-200 overflow-hidden">
-                                    {video.thumbnail ? (
-                                        <div className="relative w-full h-full">
-                                            <img
-                                                src={video.thumbnail}
-                                                alt={video.title}
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                            />
-                                            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
-                                        </div>
-                                    ) : (
-                                        <div className="w-full h-full flex items-center justify-center bg-amber-50">
-                                            <Play className="w-12 h-12 text-amber-300" />
-                                        </div>
-                                    )}
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                        <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center text-amber-600 shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
-                                            <Play className="w-6 h-6 fill-current ml-1" />
+                        {videos.map((video) => {
+                            const isExpired = video.expiresAt ? new Date(video.expiresAt) < new Date() : false;
+
+                            return (
+                                <div key={video.id} className={`group bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 border border-gray-100 flex flex-col h-full ${isExpired ? 'opacity-75 grayscale' : 'hover:shadow-xl hover:-translate-y-1'}`}>
+                                    {/* Thumbnail */}
+                                    <div className="relative aspect-video bg-gray-200 overflow-hidden">
+                                        {video.thumbnail ? (
+                                            <div className="relative w-full h-full">
+                                                <img
+                                                    src={video.thumbnail}
+                                                    alt={video.title}
+                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                />
+                                                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
+                                            </div>
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center bg-amber-50">
+                                                <Play className="w-12 h-12 text-amber-300" />
+                                            </div>
+                                        )}
+
+                                        {!isExpired && (
+                                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                <div className="w-14 h-14 bg-white/90 rounded-full flex items-center justify-center text-amber-600 shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                                                    <Play className="w-6 h-6 fill-current ml-1" />
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {isExpired && (
+                                            <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+                                                <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide">
+                                                    Expired
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="p-6 flex flex-col flex-grow">
+                                        <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-1" title={video.title}>
+                                            {video.title}
+                                        </h3>
+                                        <p className="text-gray-500 text-sm line-clamp-2 mb-6 flex-grow">
+                                            {video.description || "Start watching now to unlock the content."}
+                                        </p>
+
+                                        {/* Expiry Date Info */}
+                                        {video.expiresAt && (
+                                            <p className="text-xs text-gray-400 mb-4">
+                                                {isExpired ? 'Expired on ' : 'Expires on '}
+                                                {new Date(video.expiresAt).toLocaleDateString()}
+                                            </p>
+                                        )}
+
+                                        <div className="mt-auto">
+                                            {isExpired ? (
+                                                <Link
+                                                    href="/#paid-courses"
+                                                    className="block w-full py-3 text-center bg-gray-100 text-gray-500 font-bold rounded-xl hover:bg-gray-200 transition-all duration-300"
+                                                >
+                                                    Renew Access
+                                                </Link>
+                                            ) : (
+                                                <Link
+                                                    href={`/videos/${video.id}`}
+                                                    className="block w-full py-3 text-center bg-amber-50 text-amber-700 font-bold rounded-xl hover:bg-amber-500 hover:text-white transition-all duration-300"
+                                                >
+                                                    {t.myLibrary.watch}
+                                                </Link>
+                                            )}
                                         </div>
                                     </div>
                                 </div>
-
-                                {/* Content */}
-                                <div className="p-6 flex flex-col flex-grow">
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 line-clamp-1" title={video.title}>
-                                        {video.title}
-                                    </h3>
-                                    <p className="text-gray-500 text-sm line-clamp-2 mb-6 flex-grow">
-                                        {video.description || "Start watching now to unlock the content."}
-                                    </p>
-
-                                    <div className="mt-auto">
-                                        <Link
-                                            href={`/videos/${video.id}`}
-                                            className="block w-full py-3 text-center bg-amber-50 text-amber-700 font-bold rounded-xl hover:bg-amber-500 hover:text-white transition-all duration-300"
-                                        >
-                                            {t.myLibrary.watch}
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                            )
+                        })}
                     </div>
                 )}
             </div>

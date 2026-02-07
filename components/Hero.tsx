@@ -128,7 +128,7 @@ export default function Hero() {
                     </Link>
 
                     {/* Secondary Button / Video Thumbnail */}
-                    <div className="relative group cursor-pointer w-full sm:w-auto overflow-hidden rounded-2xl">
+                    <a href="#intro-video" className="relative group cursor-pointer w-full sm:w-auto overflow-hidden rounded-2xl">
                         <div className="absolute inset-0 bg-brand-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md"></div>
                         <div className="relative flex items-center gap-4 bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl px-6 py-4 hover:bg-black/40 transition-all w-full sm:w-auto justify-center sm:justify-start">
                             <span className="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#FFC857] text-black shadow-[0_0_15px_rgba(255,200,87,0.5)] shrink-0">
@@ -139,7 +139,7 @@ export default function Hero() {
                                 {t.hero.myJourney}
                             </span>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
 

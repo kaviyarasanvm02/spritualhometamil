@@ -63,7 +63,8 @@ model UserVideo {
   userId    String
   videoId   String
   accessGranted Boolean @default(true)
-  createdAt DateTime @default(now())
+  expiresAt     DateTime? // Null means lifetime access
+  createdAt     DateTime @default(now())
   user      User     @relation(fields: [userId], references: [id])
   video     Video    @relation(fields: [videoId], references: [id])
 

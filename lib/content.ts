@@ -8,6 +8,7 @@ export const content = {
             login: "Login",
             signup: "Sign Up",
             logout: "Logout",
+            testimonials: "Success Stories",
         },
         hero: {
             title: "Welcome to Spiritual Home Tamil!",
@@ -285,7 +286,8 @@ export const content = {
         videoPreview: {
             title: "Experience the Transformation",
             subtitle: "Watch a glimpse of what awaits you inside Spiritual Home.",
-            watchNow: "Watch Trailer"
+            watchNow: "Watch Trailer",
+            videoId: "qIOlVtMtmQw"
         }
     },
     ta: {
@@ -297,6 +299,7 @@ export const content = {
             login: "உள்நுழைய",
             signup: "பதிவு செய்க",
             logout: "வெளியேறு",
+            testimonials: "வெற்றிக் கதைகள்",
         },
         hero: {
             title: "Welcome to Spiritual Home Tamil! ஸ்பிரிச்சுவல் ஹோம் தமிழுக்கு உங்களை வரவேற்கிறோம்!",
@@ -575,7 +578,8 @@ export const content = {
         videoPreview: {
             title: "மாற்றத்தை அனுபவியுங்கள்",
             subtitle: "ஸ்பிரிச்சுவல் ஹோம் உள்ளே உங்களுக்காக என்ன காத்திருக்கிறது என்பதைக் காண இந்த வீடியோவைப் பாருங்கள்.",
-            watchNow: "டிரெய்லரைப் பாருங்கள்"
+            watchNow: "டிரெய்லரைப் பாருங்கள்",
+            videoId: "qIOlVtMtmQw"
         }
     }
 };

@@ -1,13 +1,17 @@
-"use client";
-
+import { useState } from "react";
 import { useLanguage } from "./LanguageProvider";
 import { Play } from "lucide-react";
 
 export default function VideoPreview() {
     const { t } = useLanguage();
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const handlePlay = () => {
+        setIsPlaying(true);
+    };
 
     return (
-        <section className="relative py-24 sm:py-32 bg-gray-900 overflow-hidden">
+        <section id="intro-video" className="relative py-24 sm:py-32 bg-gray-900 overflow-hidden">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-amber-600/20 rounded-full blur-[100px] opacity-30"></div>
@@ -22,25 +26,38 @@ export default function VideoPreview() {
                 </p>
 
                 {/* Video Placeholder / Container */}
-                <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-gray-900 aspect-video group cursor-pointer">
-                    {/* Placeholder Image Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black group-hover:scale-105 transition-transform duration-700"></div>
-                    <div className="absolute inset-0 bg-[url('/assets/hero-banner.png')] bg-cover bg-center opacity-40 mix-blend-overlay group-hover:opacity-50 transition-opacity"></div>
+                <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-800 bg-gray-900 aspect-video group cursor-pointer" onClick={!isPlaying ? handlePlay : undefined}>
 
-                    {/* Play Button */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="relative flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-amber-500 rounded-full shadow-lg shadow-amber-500/30 group-hover:scale-110 transition-transform duration-300 z-20">
-                            <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-current ml-1" />
-                            {/* Pulse Effect */}
-                            <div className="absolute inset-0 rounded-full bg-amber-400 animate-ping opacity-75"></div>
-                        </div>
-                    </div>
+                    {!isPlaying ? (
+                        <>
+                            {/* Placeholder Image Gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-black group-hover:scale-105 transition-transform duration-700"></div>
+                            <div className="absolute inset-0 bg-[url('/assets/hero-banner.png')] bg-cover bg-center opacity-40 mix-blend-overlay group-hover:opacity-50 transition-opacity"></div>
 
-                    {/* Overlay Text */}
-                    <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-left">
-                        <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-2">Introduction</p>
-                        <h3 className="text-white font-bold text-xl">{t.hero.myJourney}</h3>
-                    </div>
+                            {/* Play Button */}
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="relative flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 bg-amber-500 rounded-full shadow-lg shadow-amber-500/30 group-hover:scale-110 transition-transform duration-300 z-20">
+                                    <Play className="w-8 h-8 sm:w-10 sm:h-10 text-white fill-current ml-1" />
+                                    {/* Pulse Effect */}
+                                    <div className="absolute inset-0 rounded-full bg-amber-400 animate-ping opacity-75"></div>
+                                </div>
+                            </div>
+
+                            {/* Overlay Text */}
+                            <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black/90 to-transparent text-left">
+                                <p className="text-amber-400 font-medium text-sm tracking-wider uppercase mb-2">Introduction</p>
+                                <h3 className="text-white font-bold text-xl">{t.hero.myJourney}</h3>
+                            </div>
+                        </>
+                    ) : (
+                        <iframe
+                            className="absolute inset-0 w-full h-full"
+                            src={`https://www.youtube.com/embed/${t.videoPreview?.videoId}?autoplay=1&rel=0`}
+                            title="YouTube video player"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                        ></iframe>
+                    )}
                 </div>
             </div>
         </section>

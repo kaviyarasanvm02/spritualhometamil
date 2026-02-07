@@ -146,8 +146,8 @@ export default function CoursePage() {
                                                 key={idx}
                                                 onClick={() => setSelectedPlan(plan)}
                                                 className={`w-full flex items-center justify-between p-4 rounded-xl border-2 transition-all ${selectedPlan === plan
-                                                        ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20'
-                                                        : 'border-gray-100 dark:border-gray-700 hover:border-amber-200 dark:hover:border-amber-800'
+                                                    ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/20'
+                                                    : 'border-gray-100 dark:border-gray-700 hover:border-amber-200 dark:hover:border-amber-800'
                                                     }`}
                                             >
                                                 <div className="flex items-center gap-3">
@@ -174,7 +174,11 @@ export default function CoursePage() {
                                     {matchingVideoId ? (
                                         selectedPlan && (
                                             <div className="mt-4">
-                                                <BuyButton videoId={matchingVideoId} price={selectedPlan.price} />
+                                                <BuyButton
+                                                    videoId={matchingVideoId}
+                                                    price={selectedPlan.price}
+                                                    planPeriod={selectedPlan.period}
+                                                />
                                                 <p className="text-xs text-gray-500 mt-3 text-center">
                                                     Secure payment via Razorpay. Immediate access granted.
                                                 </p>

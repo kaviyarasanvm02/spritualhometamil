@@ -11,10 +11,27 @@ export async function GET() {
     try {
         const userVideos = await prisma.userVideo.findMany({
             where: { userId: session.id, accessGranted: true },
-            include: { video: true }
-        });
+            select: {
+                video: {
+                    select: {
+                        id: true,
+                        title: true,
+                        description: true,
+                        videoUrl: true,
+                        thumbnail: true,
+                        price: true
+                    }
+                },
+                expiresAt: true,
+                accessGranted: true
+            }
+        }) as any;
 
-        const videos = userVideos.map((uv: any) => uv.video);
+        const videos = userVideos.map(uv => ({
+            ...uv.video,
+            expiresAt: uv.expiresAt,
+            accessGranted: uv.accessGranted
+        }));
 
         return NextResponse.json({ videos });
     } catch (error) {

@@ -7,9 +7,10 @@ import { useAuth } from "@/components/AuthProvider";
 interface BuyButtonProps {
     videoId: string;
     price: number;
+    planPeriod?: string;
 }
 
-export default function BuyButton({ videoId, price }: BuyButtonProps) {
+export default function BuyButton({ videoId, price, planPeriod }: BuyButtonProps) {
     const { user } = useAuth();
     const router = useRouter();
     const [loading, setLoading] = useState(false);
@@ -53,6 +54,7 @@ export default function BuyButton({ videoId, price }: BuyButtonProps) {
                             signature: response.razorpay_signature,
                             videoId: videoId,
                             amount: price,
+                            planPeriod: planPeriod // Pass the selected plan period
                         }),
                     });
 

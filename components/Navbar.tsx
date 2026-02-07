@@ -28,6 +28,7 @@ export default function Navbar() {
 
     const navLinks = [
         { name: t.nav.videos, href: "/videos", icon: PlayCircle },
+        { name: t.nav.testimonials, href: "/testimonials", icon: User }, // Using User icon as placeholder or appropriate icon
     ];
 
     const authLinks = user ? [

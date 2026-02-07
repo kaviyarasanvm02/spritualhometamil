@@ -226,8 +226,39 @@ export const courses: Course[] = [
         content: {
             en: {
                 introTitle: "Intro Video",
-                introVideo: "https://www.youtube.com/embed/tj1qYopaH48?si=CEyeuju4Xx049MtE",
-                episodes: Array.from({ length: 30 }, (_, i) => ({ title: `Episode ${i + 1}` })),
+                introVideo: "https://www.youtube.com/embed/7CTqLw4npHA",
+                episodes: [
+                    { title: "Day 1: Gratitude compulsory", videoUrl: "https://www.youtube.com/embed/LHV63j_FnSI" },
+                    { title: "Day 2: Stop Manifesting (2 min meditation)", videoUrl: "https://www.youtube.com/embed/wRX79Q-N4eA" },
+                    { title: "Day 3: Set clear intention", videoUrl: "https://www.youtube.com/embed/wRX79Q-N4eA" },
+                    { title: "Day 4: Visual 2 min daily", videoUrl: "https://www.youtube.com/embed/urPHUiNJ8gU" },
+                    { title: "Day 5: Self love mirror", videoUrl: "https://www.youtube.com/embed/vVz0Be53EWc" },
+                    { title: "Day 6: Affirmation", videoUrl: "https://www.youtube.com/embed/hNf33mLdP8U" },
+                    { title: "Day 7: Improve the time for 3 to 5 min", videoUrl: "https://www.youtube.com/embed/AX_80faoaSs" },
+                    { title: "Day 8: Add consciousness (Brush)", videoUrl: "https://www.youtube.com/embed/7ZaH17WMeWM" },
+                    { title: "Day 9: Bath consciously", videoUrl: "https://www.youtube.com/embed/2m9Iit4b4og" },
+                    { title: "Day 10: Eat consciously", videoUrl: "https://www.youtube.com/embed/ylprhSbyRN8" },
+                    { title: "Day 11: Drink consciously", videoUrl: "https://www.youtube.com/embed/0hZQOQJatnI" },
+                    { title: "Day 12: 3 deep Breaths consciously (1 hour once)", videoUrl: "https://www.youtube.com/embed/tScFjE4pUjE" },
+                    { title: "Day 13: Add Gratitude for food & water", videoUrl: "https://www.youtube.com/embed/qWEPC5q4bqw" },
+                    { title: "Day 14: Make decision to be conscious before Activity", videoUrl: "https://www.youtube.com/embed/eqBS75XRWCY" },
+                    { title: "Day 15: Improve 8 to 10 min (Improve consciousness)", videoUrl: "https://www.youtube.com/embed/mALlHGberL4" },
+                    { title: "Day 16: Day time mind set (It's Already Happened)", videoUrl: "https://www.youtube.com/embed/A9AtjwD8I5U" },
+                    { title: "Day 17: Don't Focus on outerworld", videoUrl: "https://www.youtube.com/embed/Rx6Bsl-mfHY" },
+                    { title: "Day 18: Accept Everything And respond to all", videoUrl: "https://www.youtube.com/embed/IFFNMFqqLMg" },
+                    { title: "Day 19: Don't Judge", videoUrl: "https://www.youtube.com/embed/6Q6zc5E87kY" },
+                    { title: "Day 20: Negative is normal", videoUrl: "https://www.youtube.com/embed/n-cEIO2eMGo" },
+                    { title: "Day 21: Observe the negative & Release", videoUrl: "https://www.youtube.com/embed/GRe7M6sBTAc" },
+                    { title: "Day 22: Improve 13 to 15 min (Sleep consciously)", videoUrl: "https://www.youtube.com/embed/i9N26utuKPM" },
+                    { title: "Day 23: Past -> Resent -> Future", videoUrl: "https://www.youtube.com/embed/tT1BSU4KwkU" },
+                    { title: "Day 24: Save Your Energy & Manifest", videoUrl: "https://www.youtube.com/embed/ZcvPqA9T5tw" },
+                    { title: "Day 25: Mind & Body connection", videoUrl: "https://www.youtube.com/embed/H5LYYadWP_g" },
+                    { title: "Day 26: Subconscious mind Reason", videoUrl: "https://www.youtube.com/embed/p5Shme2uEf4" },
+                    { title: "Day 27: Subconscious & Conscious", videoUrl: "https://www.youtube.com/embed/x1Bc6xhEKck" },
+                    { title: "Day 28: Subconscious will not Allow", videoUrl: "https://www.youtube.com/embed/it1tl1oMW0I" },
+                    { title: "Day 29: High vibration & Positive & Present", videoUrl: "https://www.youtube.com/embed/fp8JtNfQnKY" },
+                    { title: "Day 30: Train Your Body Emotionally", videoUrl: "https://www.youtube.com/embed/BSqDnQ9pHCg" }
+                ],
                 sections: [
                     {
                         title: "🌿 Practice Creates a Shift",
@@ -269,12 +300,43 @@ export const courses: Course[] = [
             },
             ta: {
                 introTitle: "அறிமுக வீடியோ",
-                introVideo: "https://www.youtube.com/embed/tj1qYopaH48?si=CEyeuju4Xx049MtE",
-                episodes: Array.from({ length: 30 }, (_, i) => ({ title: `எபிசோட் ${i + 1}` })),
+                introVideo: "https://www.youtube.com/embed/7CTqLw4npHA",
+                episodes: [
+                    { title: "Day 1: Gratitude compulsory", videoUrl: "https://www.youtube.com/embed/LHV63j_FnSI" },
+                    { title: "Day 2: Stop Manifesting (2 min meditation)", videoUrl: "https://www.youtube.com/embed/wRX79Q-N4eA" },
+                    { title: "Day 3: Set clear intention", videoUrl: "https://www.youtube.com/embed/wRX79Q-N4eA" },
+                    { title: "Day 4: Visual 2 min daily", videoUrl: "https://www.youtube.com/embed/urPHUiNJ8gU" },
+                    { title: "Day 5: Self love mirror", videoUrl: "https://www.youtube.com/embed/vVz0Be53EWc" },
+                    { title: "Day 6: Affirmation", videoUrl: "https://www.youtube.com/embed/hNf33mLdP8U" },
+                    { title: "Day 7: Improve the time for 3 to 5 min", videoUrl: "https://www.youtube.com/embed/AX_80faoaSs" },
+                    { title: "Day 8: Add consciousness (Brush)", videoUrl: "https://www.youtube.com/embed/7ZaH17WMeWM" },
+                    { title: "Day 9: Bath consciously", videoUrl: "https://www.youtube.com/embed/2m9Iit4b4og" },
+                    { title: "Day 10: Eat consciously", videoUrl: "https://www.youtube.com/embed/ylprhSbyRN8" },
+                    { title: "Day 11: Drink consciously", videoUrl: "https://www.youtube.com/embed/0hZQOQJatnI" },
+                    { title: "Day 12: 3 deep Breaths consciously (1 hour once)", videoUrl: "https://www.youtube.com/embed/tScFjE4pUjE" },
+                    { title: "Day 13: Add Gratitude for food & water", videoUrl: "https://www.youtube.com/embed/qWEPC5q4bqw" },
+                    { title: "Day 14: Make decision to be conscious before Activity", videoUrl: "https://www.youtube.com/embed/eqBS75XRWCY" },
+                    { title: "Day 15: Improve 8 to 10 min (Improve consciousness)", videoUrl: "https://www.youtube.com/embed/mALlHGberL4" },
+                    { title: "Day 16: Day time mind set (It's Already Happened)", videoUrl: "https://www.youtube.com/embed/A9AtjwD8I5U" },
+                    { title: "Day 17: Don't Focus on outerworld", videoUrl: "https://www.youtube.com/embed/Rx6Bsl-mfHY" },
+                    { title: "Day 18: Accept Everything And respond to all", videoUrl: "https://www.youtube.com/embed/IFFNMFqqLMg" },
+                    { title: "Day 19: Don't Judge", videoUrl: "https://www.youtube.com/embed/6Q6zc5E87kY" },
+                    { title: "Day 20: Negative is normal", videoUrl: "https://www.youtube.com/embed/n-cEIO2eMGo" },
+                    { title: "Day 21: Observe the negative & Release", videoUrl: "https://www.youtube.com/embed/GRe7M6sBTAc" },
+                    { title: "Day 22: Improve 13 to 15 min (Sleep consciously)", videoUrl: "https://www.youtube.com/embed/i9N26utuKPM" },
+                    { title: "Day 23: Past -> Resent -> Future", videoUrl: "https://www.youtube.com/embed/tT1BSU4KwkU" },
+                    { title: "Day 24: Save Your Energy & Manifest", videoUrl: "https://www.youtube.com/embed/ZcvPqA9T5tw" },
+                    { title: "Day 25: Mind & Body connection", videoUrl: "https://www.youtube.com/embed/H5LYYadWP_g" },
+                    { title: "Day 26: Subconscious mind Reason", videoUrl: "https://www.youtube.com/embed/p5Shme2uEf4" },
+                    { title: "Day 27: Subconscious & Conscious", videoUrl: "https://www.youtube.com/embed/x1Bc6xhEKck" },
+                    { title: "Day 28: Subconscious will not Allow", videoUrl: "https://www.youtube.com/embed/it1tl1oMW0I" },
+                    { title: "Day 29: High vibration & Positive & Present", videoUrl: "https://www.youtube.com/embed/fp8JtNfQnKY" },
+                    { title: "Day 30: Train Your Body Emotionally", videoUrl: "https://www.youtube.com/embed/BSqDnQ9pHCg" }
+                ],
                 sections: [
                     {
-                        title: "🌿 பயிற்சி ஒரு மாற்றத்தை உண்டாக்குகிறது",
-                        content: [
+                        title: "🌿 நம்பிக்கை ஒரு மாற்றத்தை உண்டாக்குகிறது",
+                        content: [ // Minor text adjustment to match English structure but keeping existing Tamil meaning where possible
                             "நீங்கள் இலவசப் பயிற்சி 2-ஐ (Free Course 2) உண்மையாகப் பின்பற்றியிருந்தால், நீங்கள் வெறும் பாடத்தைக் கற்றுக் கொள்ளவில்லை — நீங்கள் அதை பயிற்சி செய்திருக்கிறீர்கள்.",
                             "30 நாட்கள் வழிகாட்டுதலுடன் கூடிய பயிற்சி, ஒரு உண்மையான உள் மாற்றத்தை ஏற்படுத்தப் போதுமானது.",
                             "நீங்கள் இவற்றைக் கவனிக்கத் தொடங்கலாம்:",
@@ -672,7 +734,7 @@ export const courses: Course[] = [
             en: "ALL 5 COURSES COMBO ACCESS",
             ta: "அனைத்து 5 பயிற்சிகளும்"
         },
-        thumbnail: "/assets/bundle-all-5.png", // Verify if asset exists or use placeholder
+        thumbnail: "/assets/miracle.png", // Temporary placeholder
         pricing: [
             { duration: "Monthly", price: 999, period: 'monthly' },
             { duration: "6 Months", price: 1999, period: '6_months' },
@@ -696,7 +758,7 @@ export const courses: Course[] = [
             en: "COMBO COURSE – ONE PURCHASE",
             ta: "காம்போ பயிற்சி (30 நாட்கள் + ஆன்மீகம்)"
         },
-        thumbnail: "/assets/bundle-premium.png", // Verify if asset exists or use placeholder
+        thumbnail: "/assets/30-days-guide.png", // Temporary placeholder
         pricing: [
             { duration: "1 Month Access", price: 1999, period: 'monthly' },
             { duration: "6 Months Access", price: 5999, period: '6_months' },
