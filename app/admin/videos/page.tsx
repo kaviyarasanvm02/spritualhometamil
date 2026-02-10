@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import toast from "react-hot-toast";
 import { Plus, Edit2, Trash2, Eye, PlayCircle, Search, MoreVertical, Filter } from "lucide-react";
 
 interface Video {
@@ -44,13 +45,14 @@ export default function AdminVideosPage() {
             });
 
             if (res.ok) {
-                setVideos(videos.filter(v => v.id !== id));
+                setVideos(videos.map(v => v.id === id ? { ...v, isActive: false } : v));
+                toast.success("Video deleted successfully");
             } else {
-                alert("Failed to delete video");
+                toast.error("Failed to delete video");
             }
         } catch (error) {
             console.error("Delete error:", error);
-            alert("An error occurred while deleting");
+            toast.error("An error occurred while deleting");
         }
     };
 
@@ -172,9 +174,13 @@ export default function AdminVideosPage() {
                                                 >
                                                     <Eye className="w-5 h-5" />
                                                 </Link>
-                                                <button className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all" title="Edit Details">
+                                                <Link
+                                                    href={`/admin/videos/${video.id}/edit`}
+                                                    className="p-2 text-gray-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all"
+                                                    title="Edit Details"
+                                                >
                                                     <Edit2 className="w-5 h-5" />
-                                                </button>
+                                                </Link>
                                                 <div className="w-px h-4 bg-gray-200 mx-1" />
                                                 <button
                                                     onClick={() => handleDelete(video.id)}

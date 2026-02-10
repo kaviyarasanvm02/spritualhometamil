@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/components/LanguageProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import JsonLd from "@/components/JsonLd";
 import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
@@ -106,6 +107,7 @@ export default function RootLayout({
         <LanguageProvider>
           <ThemeProvider defaultTheme="light" storageKey="spiritual-home-theme">
             <JsonLd />
+            <Toaster position="top-right" toastOptions={{ duration: 4000 }} />
             <AuthProvider>
               <Navbar />
               <ServiceWorkerRegister />

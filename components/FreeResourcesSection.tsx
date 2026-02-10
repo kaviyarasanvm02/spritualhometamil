@@ -85,7 +85,7 @@ export default function FreeResourcesSection() {
                             <div className="absolute left-0 top-1 bottom-1 w-2 bg-white/20 rounded-l-lg z-20 mix-blend-overlay"></div>
 
                             <img
-                                src="/assets/ebook-cover-ta.jpg"
+                                src="/assets/cover tamil.jpg.jpeg"
                                 alt="Tamil Ebook Cover"
                                 className="relative rounded-xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border border-white/10 w-full h-full object-cover transform transition-transform duration-500 group-hover:rotate-y-6"
                             />
@@ -105,7 +105,7 @@ export default function FreeResourcesSection() {
                             <div className="absolute left-0 top-1 bottom-1 w-2 bg-white/20 rounded-l-lg z-20 mix-blend-overlay"></div>
 
                             <img
-                                src="/assets/ebook-cover-en.jpg"
+                                src="/assets/cover english.jpg.jpeg"
                                 alt="English Ebook Cover"
                                 className="relative rounded-xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border border-white/10 w-full h-full object-cover transform transition-transform duration-500 group-hover:rotate-y-[-6deg]"
                             />

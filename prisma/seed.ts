@@ -49,7 +49,7 @@ const courses = [
         title: "Spiritual Awakening Course",
         description: "21 days consciousness & awareness training.",
         price: 999,
-        thumbnail: "/assets/money-manifestation.png", // Using same as in data
+        thumbnail: "/assets/findyourpurposee.png", // Using same as in data
         videoUrl: "https://www.youtube.com/embed/qIOlVtMtmQw"
     },
     {

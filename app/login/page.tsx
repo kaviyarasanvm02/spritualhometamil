@@ -1,17 +1,19 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useAuth } from "@/components/AuthProvider";
+import { useSearchParams } from "next/navigation";
 import { useLanguage } from "@/components/LanguageProvider";
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, Lock, Loader2, ArrowRight } from "lucide-react";
 
-export default function LoginPage() {
+function LoginForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const { login } = useAuth();
+    const searchParams = useSearchParams();
     const { t } = useLanguage();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -33,7 +35,7 @@ export default function LoginPage() {
                 throw new Error(data.error || t.auth.error);
             }
 
-            login(data.user);
+            login(data.user, searchParams.get("redirect") || undefined);
         } catch (err: any) {
             setError(err.message);
         } finally {
@@ -129,5 +131,13 @@ export default function LoginPage() {
                 </form>
             </div>
         </div>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">Loading...</div>}>
+            <LoginForm />
+        </Suspense>
     );
 }

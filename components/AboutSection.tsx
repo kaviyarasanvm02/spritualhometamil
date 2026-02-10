@@ -109,6 +109,36 @@ export default function AboutSection() {
                         ))}
                     </div>
                 </div>
+
+                {/* Image Gallery Section */}
+                <div className="mt-20 animate-fade-in-up">
+                    <div className="text-center mb-10">
+                        <span className="text-amber-600 dark:text-amber-400 font-bold tracking-wider uppercase text-sm">Gallery</span>
+                        <h3 className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">Moments of Transformation</h3>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[
+                            "/assets/pic 1.JPG",
+                            "/assets/pic 2.png",
+                            "/assets/pic 3.png",
+                            "/assets/pic 4.png",
+                            "/assets/pic 5.png",
+                            "/assets/pic 6.png"
+                        ].map((src, index) => (
+                            <div key={index} className="relative group overflow-hidden rounded-2xl shadow-lg aspect-[4/5]">
+                                <Image
+                                    src={src}
+                                    alt={`Spiritual Home Gallery ${index + 1}`}
+                                    fill
+                                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );

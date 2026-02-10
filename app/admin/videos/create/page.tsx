@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { upload } from '@vercel/blob/client';
+import toast from "react-hot-toast";
 
 export default function CreateVideoPage() {
     const [title, setTitle] = useState("");
@@ -61,11 +62,16 @@ export default function CreateVideoPage() {
             } else {
                 // Vimeo ID Flow
                 if (!vimeoId) {
-                    alert("Please enter a Vimeo ID");
+                    toast.error("Please enter a Vimeo ID");
                     setUploading(false);
                     return;
                 }
-                videoKey = vimeoId;
+                // Construct Vimeo Embed URL
+                // Check if user entered full URL or just ID
+                const idMatch = vimeoId.match(/(?:vimeo\.com\/)(\d+)/);
+                const cleanId = idMatch ? idMatch[1] : vimeoId;
+
+                videoKey = cleanId;
             }
 
             // Save to DB
@@ -81,12 +87,13 @@ export default function CreateVideoPage() {
                 }),
             });
 
-            if (!dbRes.ok) throw new Error("Failed to save video details");
+            if (!dbRes.ok) throw new Error("Failed to save video");
 
+            toast.success("Video created successfully!");
             router.push("/admin/videos");
         } catch (error) {
             console.error(error);
-            alert("Something went wrong saving to database");
+            toast.error("Something went wrong uploading the video");
         } finally {
             setUploading(false);
         }

@@ -53,7 +53,7 @@ export default function PricingCard() {
                             <div className="mx-auto max-w-xs px-8 relative z-10">
                                 <p className="text-base font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest">{t.pricing.payOnce}</p>
                                 <p className="mt-6 flex items-baseline justify-center gap-x-2">
-                                    <span className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white">₹499</span>
+                                    <span className="text-5xl font-bold tracking-tight text-gray-900 dark:text-white">₹299</span>
                                     <span className="text-sm font-semibold leading-6 text-gray-500 dark:text-gray-400">{t.pricing.startingFrom}</span>
                                 </p>
                                 <a

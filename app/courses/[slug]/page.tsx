@@ -303,7 +303,7 @@ export default function CoursePage() {
                                 ? 'உங்கள் உள்ளுணர்வை நீங்கள் உணர்ந்தால், எங்கள் கட்டமைக்கப்பட்ட கட்டணப் பயிற்சிகள் உங்களுக்கு உதவ காத்திருக்கின்றன.'
                                 : 'If you feel the inner pull, our structure paid programs are designed to help you maintain consistency and deepen your results.'}
                         </p>
-                        <button onClick={() => router.push('/#paid-courses')} className="px-8 py-3 bg-white text-indigo-900 rounded-xl font-bold hover:bg-indigo-50 transition-colors shadow-lg">
+                        <button onClick={() => router.push('/videos')} className="px-8 py-3 bg-white text-indigo-900 rounded-xl font-bold hover:bg-indigo-50 transition-colors shadow-lg">
                             {language === 'ta' ? 'கட்டணப் பயிற்சி விவரங்கள்' : 'Explore Paid Courses'}
                         </button>
                     </div>

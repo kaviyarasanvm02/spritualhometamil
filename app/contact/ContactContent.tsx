@@ -37,8 +37,7 @@ export default function ContactContent() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900 text-lg">{contactPage.info.emailTitle}</h3>
-                                    <p className="text-gray-500">support@spiritualhometamil.com</p>
-                                    <p className="text-gray-500">info@spiritualhometamil.com</p>
+                                    <p className="text-gray-500">spiritualhome949@gmail.com</p>
                                 </div>
                             </div>
 
@@ -48,8 +47,7 @@ export default function ContactContent() {
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900 text-lg">{contactPage.info.callTitle}</h3>
-                                    <p className="text-gray-500">+91 98765 43210</p>
-                                    <p className="text-sm text-gray-400 mt-1">{contactPage.info.callTime}</p>
+                                    <p className="text-gray-500">+91 81489 26969</p>
                                 </div>
                             </div>
 

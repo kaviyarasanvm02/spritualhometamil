@@ -3,8 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { useAuth } from "./AuthProvider";
-import { useLanguage } from "./LanguageProvider";
+import { useAuth } from "@/components/AuthProvider";
+import { useLanguage } from "@/components/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
 import { Menu, X, User, LogOut, LayoutDashboard, Library, PlayCircle } from "lucide-react";

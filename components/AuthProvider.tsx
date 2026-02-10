@@ -13,7 +13,7 @@ interface User {
 interface AuthContextType {
     user: User | null;
     loading: boolean;
-    login: (userData: User) => void;
+    login: (userData: User, callbackUrl?: string) => void;
     logout: () => void;
 }
 
@@ -55,9 +55,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         checkAuth();
     }, []);
 
-    const login = (userData: User) => {
+    const login = (userData: User, callbackUrl?: string) => {
         setUser(userData);
-        router.push(userData.role === "ADMIN" ? "/admin/dashboard" : "/videos");
+        router.push(callbackUrl || (userData.role === "ADMIN" ? "/admin/dashboard" : "/videos"));
     };
 
     const logout = async () => {

@@ -28,6 +28,7 @@ export interface PricingOption {
 export interface Course {
     slug: string;
     type: 'free' | 'paid';
+    category?: 'standard' | 'premium';
     title: {
         en: string;
         ta: string;
@@ -229,7 +230,7 @@ export const courses: Course[] = [
                 introVideo: "https://www.youtube.com/embed/7CTqLw4npHA",
                 episodes: [
                     { title: "Day 1: Gratitude compulsory", videoUrl: "https://www.youtube.com/embed/LHV63j_FnSI" },
-                    { title: "Day 2: Stop Manifesting (2 min meditation)", videoUrl: "https://www.youtube.com/embed/wRX79Q-N4eA" },
+                    { title: "Day 2: Stop Manifesting (2 min meditation)", videoUrl: "https://www.youtube.com/embed/tj1qYopaH48" },
                     { title: "Day 3: Set clear intention", videoUrl: "https://www.youtube.com/embed/wRX79Q-N4eA" },
                     { title: "Day 4: Visual 2 min daily", videoUrl: "https://www.youtube.com/embed/urPHUiNJ8gU" },
                     { title: "Day 5: Self love mirror", videoUrl: "https://www.youtube.com/embed/vVz0Be53EWc" },
@@ -397,11 +398,12 @@ export const courses: Course[] = [
     {
         slug: "money-manifestation",
         type: 'paid',
+        category: 'standard',
         title: {
             en: "Money Manifestation",
             ta: "பணம் ஈர்ப்பு"
         },
-        thumbnail: "/assets/money-manifestation.png",
+        thumbnail: "/assets/money-manifestationn.png",
         pricing: [
             { duration: "Monthly", price: 299, period: 'monthly' },
             { duration: "6 Months", price: 599, period: '6_months' },
@@ -440,11 +442,12 @@ export const courses: Course[] = [
     {
         slug: "relationship-manifestation",
         type: 'paid',
+        category: 'standard',
         title: {
             en: "Relationship Manifestation",
             ta: "உறவு ஈர்ப்பு"
         },
-        thumbnail: "/assets/relationship-manifestation.png",
+        thumbnail: "/assets/loa-programm.png",
         pricing: [
             { duration: "Monthly", price: 299, period: 'monthly' },
             { duration: "6 Months", price: 599, period: '6_months' },
@@ -485,11 +488,12 @@ export const courses: Course[] = [
     {
         slug: "job-manifestation",
         type: 'paid',
+        category: 'standard',
         title: {
             en: "Job Manifestation",
             ta: "வேலை ஈர்ப்பு"
         },
-        thumbnail: "/assets/job-manifestation.png",
+        thumbnail: "/assets/job-manifestationn.png",
         pricing: [
             { duration: "Monthly", price: 299, period: 'monthly' },
             { duration: "6 Months", price: 599, period: '6_months' },
@@ -528,11 +532,12 @@ export const courses: Course[] = [
     {
         slug: "health-manifestation",
         type: 'paid',
+        category: 'standard',
         title: {
             en: "Health Manifestation",
             ta: "ஆரோக்கிய ஈர்ப்பு"
         },
-        thumbnail: "/assets/health-manifestation.png",
+        thumbnail: "/assets/health-manifestationn.png",
         pricing: [
             { duration: "Monthly", price: 299, period: 'monthly' },
             { duration: "6 Months", price: 599, period: '6_months' },
@@ -571,11 +576,12 @@ export const courses: Course[] = [
     {
         slug: "find-your-passion",
         type: 'paid',
+        category: 'standard',
         title: {
             en: "Find Your Passion",
             ta: "உங்கள் ஆர்வத்தைக் கண்டறியவும்"
         },
-        thumbnail: "/assets/find-your-passion.png",
+        thumbnail: "/assets/findyourpurposee.png",
         pricing: [
             { duration: "Monthly", price: 299, period: 'monthly' },
             { duration: "6 Months", price: 599, period: '6_months' },
@@ -616,6 +622,7 @@ export const courses: Course[] = [
     {
         slug: "30-days-loa",
         type: 'paid', // Premium
+        category: 'premium',
         title: {
             en: "30-Day Transformation Program",
             ta: "30 நாட்கள் முழு ஈர்ப்பு விதி பயிற்சி"
@@ -690,6 +697,7 @@ export const courses: Course[] = [
     {
         slug: "21-days-consciousness",
         type: 'paid', // Premium - Spiritual Awakening Course
+        category: 'premium',
         title: {
             en: "Spiritual Awakening Course",
             ta: "ஆன்மீக விழிப்புணர்வு பயிற்சி (21 நாட்கள்)"
@@ -730,6 +738,7 @@ export const courses: Course[] = [
     {
         slug: "all-5-courses-combo",
         type: 'paid',
+        category: 'standard',
         title: {
             en: "ALL 5 COURSES COMBO ACCESS",
             ta: "அனைத்து 5 பயிற்சிகளும்"
@@ -754,6 +763,7 @@ export const courses: Course[] = [
     {
         slug: "transformation-spiritual-combo",
         type: 'paid',
+        category: 'premium',
         title: {
             en: "COMBO COURSE – ONE PURCHASE",
             ta: "காம்போ பயிற்சி (30 நாட்கள் + ஆன்மீகம்)"

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useLanguage } from "./LanguageProvider";
+import { useLanguage } from "@/components/LanguageProvider";
 
 export default function Hero() {
     const { t, language } = useLanguage();
@@ -54,7 +54,7 @@ export default function Hero() {
                     <source src="/hero-video.mp4" type="video/mp4" />
                 </video>
                 {/* Deep Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90" />
             </div>
 
             {/* Ambient Spiritual Glow (The "Divine Light") */}
@@ -68,7 +68,7 @@ export default function Hero() {
             </div>
 
             {/* Main Content Card - Premium Glassmorphism */}
-            <div className={`mx-auto max-w-5xl text-center relative z-10 p-8 sm:p-14 rounded-[2.5rem] border border-white/5 bg-black/5 backdrop-blur-sm shadow-[0_0_60px_rgba(0,0,0,0.3)] ${isTamil ? "mt-32 sm:mt-24" : "mt-16 sm:mt-0"} group transition-all duration-500 hover:shadow-[0_0_80px_rgba(255,200,87,0.1)] hover:border-[#FFC857]/20`}>
+            <div className={`mx-auto max-w-5xl text-center relative z-10 p-8 sm:p-14 rounded-[2.5rem] border border-white/10 bg-black/40 backdrop-blur-md shadow-[0_0_60px_rgba(0,0,0,0.5)] ${isTamil ? "mt-32 sm:mt-24" : "mt-16 sm:mt-0"} group transition-all duration-500 hover:shadow-[0_0_80px_rgba(255,200,87,0.1)] hover:border-[#FFC857]/30`}>
 
                 {/* Noise Texture Overlay for Card */}
                 <div className="absolute inset-0 rounded-[2.5rem] opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>

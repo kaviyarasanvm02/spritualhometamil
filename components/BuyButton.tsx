@@ -17,7 +17,8 @@ export default function BuyButton({ videoId, price, planPeriod }: BuyButtonProps
 
     const handleBuy = async () => {
         if (!user) {
-            router.push("/login");
+            const currentPath = window.location.pathname;
+            router.push(`/login?redirect=${encodeURIComponent(currentPath)}`);
             return;
         }
 

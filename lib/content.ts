@@ -35,7 +35,7 @@ export const content = {
         platform: {
             title: "Platform",
             youtube: "YOUTUBE: 14,000 + subscribers",
-            instagram: "INSTAGRAM: 11,000+ followers",
+            instagram: "INSTAGRAM: 15,000+ followers",
             whatsapp: "WHATSAPP CHANNEL: 1000+ members",
             telegram: "TELEGRAM: 800+ members",
             subscribe: "Subscribe",
@@ -46,8 +46,8 @@ export const content = {
             title: "Free Resources",
             subtitle: "The Door for Your Wishes, Success and Dream Life",
             ebookTitle: "FREE E-BOOK (21 days step by step law of attraction guidance)",
-            downloadTamil: "CLICK HERE TO DOWNLOAD – {UNLOCKING THE SOUL TAMIL}",
-            downloadEnglish: "CLICK HERE TO DOWNLOAD – {UNLOCKING THE SOUL ENGLISH}",
+            downloadTamil: "Click here to download e-book in tamil – {உங்கள் ஆன்மாவைத் திறக்கும் திறவுகோல் - அறிமுகம்}",
+            downloadEnglish: "Click here to download e-book in english – {The key to unlock your soul introduction}",
         },
         freeCourses: {
             title: "Free Course Section",
@@ -246,7 +246,7 @@ export const content = {
                 callTitle: "Call Us",
                 callTime: "Mon-Fri from 9am to 6pm IST",
                 visitTitle: "Visit Us",
-                address: "123 Spiritual Avenue, Anna Nagar, Chennai, Tamil Nadu 600040",
+                address: "No:10 pandi Kovil Street near railway station, Karaikudi, Sivaganga, Tamilnadu 630003",
                 returnHome: "Return to Home"
             }
         },
@@ -538,7 +538,7 @@ export const content = {
                 callTitle: "எங்களை அழைக்கவும்",
                 callTime: "திங்கள்-வெள்ளி காலை 9 மணி முதல் மாலை 6 மணி வரை IST",
                 visitTitle: "எங்களைப் பார்வையிடவும்",
-                address: "123 ஆன்மீக அவென்யூ, அண்ணா நகர், சென்னை, தமிழ்நாடு 600040",
+                address: "No:10 pandi Kovil Street near railway station, Karaikudi, Sivaganga, Tamilnadu 630003",
                 returnHome: "முகப்புக்குத் திரும்பு"
             }
         },

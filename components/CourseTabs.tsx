@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useLanguage } from "./LanguageProvider";
+import Image from "next/image";
+import { useLanguage } from "@/components/LanguageProvider";
 import { Sparkles, ArrowRight, Play, Star, Clock } from "lucide-react";
 
 type Video = {
@@ -55,10 +56,11 @@ export default function CourseTabs({ videos }: { videos: Video[] }) {
                                 <div className="relative aspect-[4/3] overflow-hidden">
                                     {video.thumbnail ? (
                                         <div className="relative h-full w-full">
-                                            <img
-                                                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                                src={video.thumbnail}
+                                            <Image
+                                                src={video.thumbnail!}
                                                 alt={video.title}
+                                                fill
+                                                className="object-cover transition-transform duration-700 group-hover:scale-110"
                                             />
                                             {/* Gradient Overlay */}
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-60 group-hover:opacity-80 transition-opacity duration-500" />

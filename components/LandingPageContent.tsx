@@ -32,7 +32,7 @@ export default function LandingPageContent({ videos }: { videos: any[] }) {
             <FreeCoursesSection />
             <PaidCoursesSection />
             <VideoPreview />
-            <CourseTabs videos={videos} />
+            {/* <CourseTabs videos={videos} /> */}
             <PricingCard />
             <PaymentSection />
             {/* Footer moved to layout */}
