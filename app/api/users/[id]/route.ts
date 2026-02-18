@@ -26,19 +26,22 @@ export async function DELETE(
         ]);
 
         return NextResponse.json({ success: true });
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Delete User Error:", error);
 
         // Log to file for debugging
         try {
-            const fs = require('fs');
-            const path = require('path');
+            const fs = await import('fs');
+            const path = await import('path');
             const logPath = path.join(process.cwd(), 'delete_error_log.txt');
-            fs.appendFileSync(logPath, `[${new Date().toISOString()}] Failed to delete user ${await params.then(p => p.id)}: ${error.message}\n${error.stack}\n\n`);
+            const errorMessage = error instanceof Error ? error.message : "Unknown error";
+            const errorStack = error instanceof Error ? error.stack : "";
+            fs.appendFileSync(logPath, `[${new Date().toISOString()}] Failed to delete user ${await params.then(p => p.id)}: ${errorMessage}\n${errorStack}\n\n`);
         } catch (e) {
             console.error("Failed to write log", e);
         }
 
-        return NextResponse.json({ error: `Deletion failed: ${error.message}` }, { status: 500 });
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
+        return NextResponse.json({ error: `Deletion failed: ${errorMessage}` }, { status: 500 });
     }
 }

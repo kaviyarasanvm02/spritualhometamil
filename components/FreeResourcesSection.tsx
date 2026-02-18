@@ -2,12 +2,14 @@
 
 import { useLanguage } from "./LanguageProvider";
 import { Download, BookOpen, Sparkles, Star, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 export default function FreeResourcesSection() {
     const { t } = useLanguage();
 
     return (
-        <section className="relative py-24 sm:py-32 overflow-hidden">
+        <section id="ebooks" className="relative py-24 sm:py-32 overflow-hidden">
             {/* Deep, Premium Background */}
             <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-amber-50/30 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 transition-colors duration-500" />
 
@@ -74,48 +76,47 @@ export default function FreeResourcesSection() {
                         </div>
                     </div>
 
-                    {/* Right Visual (3D Ebook Covers) */}
-                    <div className="relative w-full flex flex-col sm:flex-row gap-10 items-center justify-center lg:justify-end perspective-1000">
-                        {/* Tamil Ebook */}
-                        <a href="/ebook-ta.pdf" download className="group relative w-56 sm:w-64 aspect-[1/1.45] transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 cursor-pointer z-20">
-                            {/* Glow/Shadow */}
-                            <div className="absolute -inset-4 bg-amber-500/20 blur-2xl group-hover:bg-amber-500/30 transition-colors duration-500 rounded-[2rem] opacity-0 group-hover:opacity-100"></div>
+                    {/* Right Visual (Auto Sliding Ebooks) */}
+                    <div className="relative w-full flex flex-col justify-center overflow-hidden h-[500px] perspective-1000">
+                        <motion.div
+                            className="flex gap-10"
+                            animate={{ x: [0, -600] }}
+                            transition={{
+                                repeat: Infinity,
+                                duration: 15,
+                                ease: "linear",
+                            }}
+                        >
+                            {[...Array(6)].map((_, i) => (
+                                <div key={i} className="flex gap-10 flex-shrink-0">
+                                    {/* Tamil Ebook */}
+                                    <a href="/ebook-ta.pdf" download className="group relative w-56 sm:w-64 aspect-[1/1.45] transition-all duration-500 ease-out cursor-pointer hover:scale-105">
+                                        <div className="absolute -inset-4 bg-amber-500/20 blur-2xl rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <div className="absolute left-0 top-1 bottom-1 w-2 bg-white/20 rounded-l-lg z-20 mix-blend-overlay" />
+                                        <Image
+                                            src="/assets/cover tamil.jpg.jpeg"
+                                            alt="Tamil Ebook Cover"
+                                            fill
+                                            className="relative rounded-xl shadow-lg border border-white/10 object-cover"
+                                            sizes="(max-width: 640px) 100vw, 256px"
+                                        />
+                                    </a>
 
-                            {/* Book Spine Effect */}
-                            <div className="absolute left-0 top-1 bottom-1 w-2 bg-white/20 rounded-l-lg z-20 mix-blend-overlay"></div>
-
-                            <img
-                                src="/assets/cover tamil.jpg.jpeg"
-                                alt="Tamil Ebook Cover"
-                                className="relative rounded-xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border border-white/10 w-full h-full object-cover transform transition-transform duration-500 group-hover:rotate-y-6"
-                            />
-
-                            {/* Overlay on Hover */}
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 rounded-xl backdrop-blur-[2px]">
-                                <div className="bg-white/90 dark:bg-black/80 text-gray-900 dark:text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    <Download className="w-4 h-4" /> Download PDF
+                                    {/* English Ebook */}
+                                    <a href="/ebook-en.pdf" download className="group relative w-56 sm:w-64 aspect-[1/1.45] transition-all duration-500 ease-out cursor-pointer hover:scale-105">
+                                        <div className="absolute -inset-4 bg-indigo-500/20 blur-2xl rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <div className="absolute left-0 top-1 bottom-1 w-2 bg-white/20 rounded-l-lg z-20 mix-blend-overlay" />
+                                        <Image
+                                            src="/assets/cover english.jpg.jpeg"
+                                            alt="English Ebook Cover"
+                                            fill
+                                            className="relative rounded-xl shadow-lg border border-white/10 object-cover"
+                                            sizes="(max-width: 640px) 100vw, 256px"
+                                        />
+                                    </a>
                                 </div>
-                            </div>
-                        </a>
-
-                        {/* English Ebook - Slightly behind or offset */}
-                        <a href="/ebook-en.pdf" download className="group relative w-56 sm:w-64 aspect-[1/1.45] sm:-ml-12 lg:-ml-16 sm:mt-12 transition-all duration-500 ease-out hover:scale-105 hover:-translate-y-2 cursor-pointer z-10 hover:z-30">
-                            <div className="absolute -inset-4 bg-indigo-500/20 blur-2xl group-hover:bg-indigo-500/30 transition-colors duration-500 rounded-[2rem] opacity-0 group-hover:opacity-100"></div>
-
-                            <div className="absolute left-0 top-1 bottom-1 w-2 bg-white/20 rounded-l-lg z-20 mix-blend-overlay"></div>
-
-                            <img
-                                src="/assets/cover english.jpg.jpeg"
-                                alt="English Ebook Cover"
-                                className="relative rounded-xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] border border-white/10 w-full h-full object-cover transform transition-transform duration-500 group-hover:rotate-y-[-6deg]"
-                            />
-
-                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/20 rounded-xl backdrop-blur-[2px]">
-                                <div className="bg-white/90 dark:bg-black/80 text-gray-900 dark:text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    <Download className="w-4 h-4" /> Download PDF
-                                </div>
-                            </div>
-                        </a>
+                            ))}
+                        </motion.div>
                     </div>
 
                 </div>

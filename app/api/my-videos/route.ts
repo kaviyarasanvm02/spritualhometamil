@@ -25,9 +25,9 @@ export async function GET() {
                 expiresAt: true,
                 accessGranted: true
             }
-        }) as any;
+        });
 
-        const videos = userVideos.map((uv: any) => ({
+        const videos = userVideos.map((uv) => ({
             ...uv.video,
             expiresAt: uv.expiresAt,
             accessGranted: uv.accessGranted

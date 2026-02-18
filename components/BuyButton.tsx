@@ -10,12 +10,18 @@ interface BuyButtonProps {
     planPeriod?: string;
 }
 
+import { content as globalContent } from "@/lib/content";
+import { useLanguage } from "@/components/LanguageProvider";
+
 export default function BuyButton({ videoId, price, planPeriod }: BuyButtonProps) {
     const { user } = useAuth();
+    const { language } = useLanguage();
+    const t = language === 'ta' ? globalContent.ta : globalContent.en;
     const router = useRouter();
     const [loading, setLoading] = useState(false);
 
     const handleBuy = async () => {
+        // ... (existing handleBuy logic)
         if (!user) {
             const currentPath = window.location.pathname;
             router.push(`/login?redirect=${encodeURIComponent(currentPath)}`);
@@ -44,7 +50,7 @@ export default function BuyButton({ videoId, price, planPeriod }: BuyButtonProps
                 name: "Spiritual Home",
                 description: "Video Access",
                 order_id: order.id,
-                handler: async function (response: any) {
+                handler: async function (response: { razorpay_payment_id: string; razorpay_order_id: string; razorpay_signature: string }) {
                     // 3. Verify Payment
                     const verifyRes = await fetch("/api/orders", {
                         method: "POST",
@@ -76,6 +82,7 @@ export default function BuyButton({ videoId, price, planPeriod }: BuyButtonProps
                 },
             };
 
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             const razorpay = new (window as any).Razorpay(options);
             razorpay.open();
 
@@ -93,7 +100,7 @@ export default function BuyButton({ videoId, price, planPeriod }: BuyButtonProps
             disabled={loading}
             className="w-full bg-amber-500 text-white py-3 px-4 rounded-md hover:bg-amber-600 font-semibold shadow-lg transition-transform transform hover:scale-105 disabled:opacity-75"
         >
-            {loading ? "Processing..." : `Buy Now for ₹${price}`}
+            {loading ? t.auth.processing : `${t.pricing.buyNow} ₹${price}`}
         </button>
     );
 }

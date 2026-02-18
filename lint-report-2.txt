@@ -1,0 +1,165 @@
+﻿
+> spritual_home_tamil@0.1.0 lint
+> eslint
+
+
+F:\Projects\spritual_home_tamil\app\admin\dashboard\page.tsx
+    3:48  warning  'MoreVertical' is defined but never used                         @typescript-eslint/no-unused-vars
+   10:11  warning  'router' is assigned a value but never used                      @typescript-eslint/no-unused-vars
+   47:54  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  159:92  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+F:\Projects\spritual_home_tamil\app\admin\messages\page.tsx
+  2:16  warning  'Search' is defined but never used    @typescript-eslint/no-unused-vars
+  2:24  warning  'Download' is defined but never used  @typescript-eslint/no-unused-vars
+  2:34  warning  'Calendar' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\app\admin\orders\page.tsx
+    4:49  warning  'CreditCard' is defined but never used                           @typescript-eslint/no-unused-vars
+    4:61  warning  'ChevronDown' is defined but never used                          @typescript-eslint/no-unused-vars
+   94:84  error    Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  116:42  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+F:\Projects\spritual_home_tamil\app\admin\users\page.tsx
+  131:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+F:\Projects\spritual_home_tamil\app\admin\videos\create\page.tsx
+  187:111  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  187:127  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  187:132  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  187:150  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+F:\Projects\spritual_home_tamil\app\admin\videos\page.tsx
+  7:56  warning  'MoreVertical' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\app\api\orders\route.ts
+  13:37  warning  'orderId' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  13:46  warning  'signature' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  52:18  error    Unexpected any. Specify a different type        @typescript-eslint/no-explicit-any
+  65:27  warning  'req' is defined but never used                 @typescript-eslint/no-unused-vars
+  86:14  warning  'error' is defined but never used               @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\app\api\razorpay\create-order\route.ts
+  2:10  warning  'razorpay' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\app\api\upload\route.ts
+  12:43  warning  'pathname' is defined but never used       @typescript-eslint/no-unused-vars
+  12:53  warning  'clientPayload' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\app\api\users\route.ts
+   5:27  warning  'req' is defined but never used    @typescript-eslint/no-unused-vars
+  26:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\app\contact\page.tsx
+  1:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\app\courses\[slug]\CourseClient.tsx
+  21:11  warning  't' is assigned a value but never used                                                          @typescript-eslint/no-unused-vars
+  29:13  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+
+F:\Projects\spritual_home_tamil\app\my-videos\page.tsx
+    8:26  warning  'Clock' is defined but never used                                @typescript-eslint/no-unused-vars
+  110:82  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+F:\Projects\spritual_home_tamil\app\register\page.tsx
+  8:10  warning  'useRouter' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\app\testimonials\page.tsx
+  9:13  warning  't' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\check-users.js
+  1:26  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\Projects\spritual_home_tamil\check-videos.js
+   1:18  error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+   2:1   error    A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  25:18  warning  'e' is defined but never used            @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\components\AdminSidebar.tsx
+  6:52  warning  'LogOut' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\components\AudioPlayer.tsx
+  4:23  warning  'RefreshCw' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\components\CourseTabs.tsx
+  6:44  warning  'Clock' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\components\FreeCoursesSection.tsx
+  80:128  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+F:\Projects\spritual_home_tamil\components\FreeResourcesSection.tsx
+  4:20  warning  'BookOpen' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\components\LandingPageContent.tsx
+   9:8  warning  'CourseTabs' is defined but never used  @typescript-eslint/no-unused-vars
+  14:8  warning  'Navbar' is defined but never used      @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\components\LanguageProvider.tsx
+  25:9  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+
+F:\Projects\spritual_home_tamil\components\PaidCoursesSection.tsx
+  143:1   warning  Unused eslint-disable directive (no problems were reported from '@typescript-eslint/no-unused-vars')
+  144:60  error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+  144:75  error    Unexpected any. Specify a different type                                                              @typescript-eslint/no-explicit-any
+
+F:\Projects\spritual_home_tamil\components\ThemeProvider.tsx
+  37:9  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+
+F:\Projects\spritual_home_tamil\components\ThemeToggle.tsx
+  14:9  warning  Unused eslint-disable directive (no problems were reported from 'react-hooks/exhaustive-deps')
+
+F:\Projects\spritual_home_tamil\components\courses\CoursePricing.tsx
+  33:17  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+F:\Projects\spritual_home_tamil\components\courses\CoursePricing.tsx:33:17
+  31 |             if (!isCurrentPlanValid) {
+  32 |                 const defaultPlan = pricing.find(p => p.label === 'Most Popular' || p.label === 'Best Value') || pricing[0];
+> 33 |                 setSelectedPlan(defaultPlan);
+     |                 ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  34 |             }
+  35 |         }
+  36 |     }, [pricing, selectedPlan]);  react-hooks/set-state-in-effect
+
+F:\Projects\spritual_home_tamil\lib\auth.ts
+  22:36  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  33:14  warning  'error' is defined but never used         @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\lib\prisma.ts
+  14:51  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+F:\Projects\spritual_home_tamil\public\sw.js
+  1:35  warning  'event' is defined but never used  @typescript-eslint/no-unused-vars
+  5:36  warning  'event' is defined but never used  @typescript-eslint/no-unused-vars
+  9:33  warning  'event' is defined but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\scripts\seed-admin.js
+   2:26  error    A `require()` style import is forbidden        @typescript-eslint/no-require-imports
+   3:18  error    A `require()` style import is forbidden        @typescript-eslint/no-require-imports
+   4:22  error    A `require()` style import is forbidden        @typescript-eslint/no-require-imports
+   5:16  error    A `require()` style import is forbidden        @typescript-eslint/no-require-imports
+   6:14  error    A `require()` style import is forbidden        @typescript-eslint/no-require-imports
+   7:1   error    A `require()` style import is forbidden        @typescript-eslint/no-require-imports
+   8:1   error    A `require()` style import is forbidden        @typescript-eslint/no-require-imports
+  50:15  warning  'newAdmin' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+F:\Projects\spritual_home_tamil\scripts\verify-razorpay.js
+  1:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  6:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  8:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\Projects\spritual_home_tamil\tailwind.config.ts
+  24:9  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+F:\Projects\spritual_home_tamil\test-db.js
+  1:18  error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+  2:1   error  A `require()` style import is forbidden  @typescript-eslint/no-require-imports
+
+Γ£û 72 problems (33 errors, 39 warnings)
+  0 errors and 5 warnings potentially fixable with the `--fix` option.
+

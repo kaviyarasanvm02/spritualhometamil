@@ -2,16 +2,20 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { comparePassword, signToken } from "@/lib/auth";
 import { cookies } from "next/headers";
+import { loginSchema } from "@/lib/validations";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: Request) {
     try {
-        const { email, password } = await req.json();
+        const body = await req.json();
+        const validation = loginSchema.safeParse(body);
 
-        if (!email || !password) {
-            return NextResponse.json({ error: "Missing email or password" }, { status: 400 });
+        if (!validation.success) {
+            return NextResponse.json({ error: validation.error.issues[0].message }, { status: 400 });
         }
+
+        const { email, password } = validation.data;
 
         const user = await prisma.user.findUnique({
             where: { email },

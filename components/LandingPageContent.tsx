@@ -13,7 +13,7 @@ import VideoPreview from "@/components/VideoPreview";
 // import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar"; // Navbar also needs to be inside the provider context to see the toggle
 
-export default function LandingPageContent({ videos }: { videos: any[] }) {
+export default function LandingPageContent() {
     return (
         <main className="min-h-screen bg-white dark:bg-gray-950 transition-colors duration-300">
             {/* Note: Navbar was in layout.tsx. We need to decide if LanguageProvider wraps layout or just page. 

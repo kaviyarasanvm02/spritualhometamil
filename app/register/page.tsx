@@ -36,8 +36,12 @@ export default function RegisterPage() {
             }
 
             login(data.user);
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError("An unexpected error occurred");
+            }
         } finally {
             setIsSubmitting(false);
         }
@@ -79,6 +83,7 @@ export default function RegisterPage() {
                 <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                     <div className="space-y-4">
                         <div className="relative group">
+                            <label htmlFor="name" className="sr-only">Full Name</label>
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <User className="h-5 w-5 text-gray-400 group-focus-within:text-amber-500 transition-colors" />
                             </div>
@@ -94,6 +99,7 @@ export default function RegisterPage() {
                             />
                         </div>
                         <div className="relative group">
+                            <label htmlFor="email-address" className="sr-only">Email address</label>
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <Mail className="h-5 w-5 text-gray-400 group-focus-within:text-amber-500 transition-colors" />
                             </div>
@@ -109,6 +115,7 @@ export default function RegisterPage() {
                             />
                         </div>
                         <div className="relative group">
+                            <label htmlFor="password" className="sr-only">Password</label>
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <Lock className="h-5 w-5 text-gray-400 group-focus-within:text-amber-500 transition-colors" />
                             </div>

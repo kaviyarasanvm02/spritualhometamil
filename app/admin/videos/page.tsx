@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
+import Image from "next/image";
 import { Plus, Edit2, Trash2, Eye, PlayCircle, Search, MoreVertical, Filter } from "lucide-react";
 
 interface Video {
@@ -138,7 +139,7 @@ export default function AdminVideosPage() {
                                             <div className="flex items-center gap-5">
                                                 <div className="h-16 w-28 bg-gray-100 rounded-lg overflow-hidden relative shrink-0 border border-gray-200 shadow-sm group-hover:shadow-md transition-all">
                                                     {video.thumbnail ? (
-                                                        <img src={video.thumbnail} alt={video.title} className="object-cover w-full h-full" />
+                                                        <Image src={video.thumbnail} alt={video.title} fill className="object-cover" sizes="112px" />
                                                     ) : (
                                                         <div className="flex items-center justify-center h-full bg-gray-50 text-gray-300">
                                                             <PlayCircle className="w-8 h-8" />

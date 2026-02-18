@@ -1,5 +1,4 @@
 import LandingPageContent from "@/components/LandingPageContent";
-import prisma from "@/lib/prisma";
 import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
@@ -12,13 +11,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Home() {
-  const videos = await prisma.video.findMany({
-    where: { isActive: true },
-    orderBy: { createdAt: "desc" },
-  });
-
+export default function Home() {
   return (
-    <LandingPageContent videos={videos} />
+    <LandingPageContent />
   );
 }

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { upload } from '@vercel/blob/client';
 import { use } from "react";
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 export default function EditVideoPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = use(params);
@@ -186,7 +187,9 @@ export default function EditVideoPage({ params }: { params: Promise<{ id: string
                     <label className="block text-sm font-medium text-gray-700">Thumbnail Image</label>
                     {thumbnailUrl && (
                         <div className="mb-2">
-                            <img src={thumbnailUrl} alt="Current Thumbnail" className="h-32 object-cover rounded shadow-sm" />
+                            <div className="relative h-32 w-full max-w-[200px] mb-2">
+                                <Image src={thumbnailUrl} alt="Current Thumbnail" fill className="object-cover rounded shadow-sm" sizes="200px" />
+                            </div>
                         </div>
                     )}
                     <input

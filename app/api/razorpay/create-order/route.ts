@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { razorpay } from "@/lib/razorpay";
 import { getSession } from "@/lib/auth";
+import { createOrderSchema } from "@/lib/validations";
 
 export async function POST(req: Request) {
     const session = await getSession();
@@ -11,18 +12,20 @@ export async function POST(req: Request) {
     try {
         const body = await req.json();
         console.log("Request Body:", body);
-        const { amount, videoId } = body;
+
+        const validation = createOrderSchema.safeParse(body);
+        if (!validation.success) {
+            return NextResponse.json({ error: validation.error.issues[0].message }, { status: 400 });
+        }
+
+        const { amount, videoId } = validation.data;
 
         console.log(`Processing Order: Amount=${amount}, VideoId=${videoId}`);
 
-        if (!amount || !videoId) {
-            throw new Error("Missing amount or videoId");
-        }
-
         // Initialize locally to verify env vars are used correctly at runtime
-        const Razorpay = require("razorpay");
+        const Razorpay = (await import("razorpay")).default;
         const instance = new Razorpay({
-            key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY,
+            key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY || "",
             key_secret: process.env.RAZORPAY_KEY_SECRET,
         });
 
@@ -38,12 +41,13 @@ export async function POST(req: Request) {
         console.log("Order Created Successfully:", order);
 
         return NextResponse.json(order);
-    } catch (error: any) {
+    } catch (error: unknown) {
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
         console.error("Razorpay Order Error Full Object:", JSON.stringify(error, null, 2));
 
         return NextResponse.json({
             error: "Failed to create order",
-            message: error.message || "Unknown error",
+            message: errorMessage,
             fullError: JSON.parse(JSON.stringify(error)), // Ensure serializable
             debug: {
                 envKeyId: process.env.NEXT_PUBLIC_RAZORPAY_KEY, // Temporary log to verify Match

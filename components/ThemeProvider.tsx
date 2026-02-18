@@ -34,6 +34,7 @@ export function ThemeProvider({
 
     useEffect(() => {
         setMounted(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         const storedTheme = localStorage.getItem(storageKey) as Theme;
         if (storedTheme) {
             setTheme(storedTheme);

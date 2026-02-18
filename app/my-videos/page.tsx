@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAuth } from "@/components/AuthProvider";
 import { useLanguage } from "@/components/LanguageProvider";
+import Image from "next/image";
 import { Play, BookOpen, Clock, ArrowRight, Sparkles } from "lucide-react";
 
 interface Video {
@@ -126,10 +127,12 @@ export default function MyVideosPage() {
                                     <div className="relative aspect-video bg-gray-200 overflow-hidden">
                                         {video.thumbnail ? (
                                             <div className="relative w-full h-full">
-                                                <img
-                                                    src={video.thumbnail}
+                                                <Image
+                                                    src={video.thumbnail!}
                                                     alt={video.title}
-                                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                    fill
+                                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                                 />
                                                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
                                             </div>

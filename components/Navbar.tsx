@@ -7,7 +7,7 @@ import { useAuth } from "@/components/AuthProvider";
 import { useLanguage } from "@/components/LanguageProvider";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
-import { Menu, X, User, LogOut, LayoutDashboard, Library, PlayCircle } from "lucide-react";
+import { Menu, X, User, LogOut, LayoutDashboard, Library, PlayCircle, BookOpen, Sparkles, Star, Zap } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 export default function Navbar() {
@@ -29,6 +29,14 @@ export default function Navbar() {
     const navLinks = [
         { name: t.nav.videos, href: "/videos", icon: PlayCircle },
         { name: t.nav.testimonials, href: "/testimonials", icon: User }, // Using User icon as placeholder or appropriate icon
+    ];
+
+    const landingLinks = [
+        { name: t.nav.about, href: "/#about", icon: User },
+        { name: t.nav.ebook, href: "/#ebooks", icon: BookOpen },
+        { name: t.nav.freeCourse, href: "/#free-courses", icon: Sparkles },
+        { name: t.nav.standard, href: "/#standard-courses", icon: Star },
+        { name: t.nav.premium, href: "/#premium-courses", icon: Zap },
     ];
 
     const authLinks = user ? [
@@ -70,6 +78,7 @@ export default function Navbar() {
                                         fill
                                         className="object-contain dark:brightness-125"
                                         priority
+                                        sizes="56px"
                                     />
                                 </div>
                                 {/* Hidden text for SEO but visible if needed, currently hiding to prioritize logo */}
@@ -148,6 +157,7 @@ export default function Navbar() {
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                                 className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none ${isActuallyScrolled ? "text-gray-700 hover:text-amber-600 dark:text-gray-200 dark:hover:text-amber-400" : "text-white hover:text-amber-400"}`}
+                                aria-expanded={mobileMenuOpen}
                             >
                                 <span className="sr-only">Open main menu</span>
                                 {mobileMenuOpen ? (
@@ -162,7 +172,21 @@ export default function Navbar() {
 
                 {/* Mobile Menu */}
                 {mobileMenuOpen && (
-                    <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 py-4 px-4 flex flex-col space-y-4 animate-in slide-in-from-top-5 duration-200">
+                    <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-xl border-t border-gray-100 py-4 px-4 flex flex-col space-y-4 animate-in slide-in-from-top-5 duration-200 text-left h-[80vh] overflow-y-auto">
+                        <div className="space-y-1 pb-2 border-b border-gray-100">
+                            {landingLinks.map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() => setMobileMenuOpen(false)}
+                                    className="flex items-center gap-3 px-3 py-3 rounded-lg hover:bg-amber-50 text-base font-medium text-gray-700 hover:text-amber-600"
+                                >
+                                    <link.icon className="w-5 h-5 text-amber-500/70" />
+                                    {link.name}
+                                </Link>
+                            ))}
+                        </div>
+
                         {navLinks.map((link) => (
                             <Link
                                 key={link.href}

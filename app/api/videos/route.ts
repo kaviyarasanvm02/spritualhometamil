@@ -40,24 +40,32 @@ export async function POST(req: Request) {
 }
 
 export async function GET(req: Request) {
-    // Allow public to see list? Use filters for active?
-    // Admin needs to see all. Users see only active.
     try {
-        // Simple logic: return all for now, filter in frontend if needed or ideally query params.
-        // But let's check auth.
-        // If admin, show all. If user/public, show active only.
-        // But session check here is tricky without cookies every time? API routes do receive cookies.
+        const { searchParams } = new URL(req.url);
+        const title = searchParams.get('title');
 
-        // Let's just return all active videos by default, unless admin param?
-        // Better: Admin uses /admin/videos which calls API.
-        // Public uses /videos which calls same API?
-        // For now, return all.
+        if (title) {
+            const videos = await prisma.video.findMany({
+                where: {
+                    title: {
+                        contains: title,
+                        mode: 'insensitive',
+                    },
+                    isActive: true // robust default for public facing API
+                },
+                orderBy: { createdAt: 'desc' }
+            });
+            return NextResponse.json({ videos });
+        }
 
+        // If no title provided, return all (or maybe limiting to active only is safer for public)
         const videos = await prisma.video.findMany({
+            where: { isActive: true },
             orderBy: { createdAt: 'desc' }
         });
         return NextResponse.json({ videos });
     } catch (error) {
+        console.error("Failed to fetch videos:", error);
         return NextResponse.json({ error: "Failed to fetch" }, { status: 500 });
     }
 }

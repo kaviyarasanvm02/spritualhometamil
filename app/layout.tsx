@@ -1,17 +1,35 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { AuthProvider } from "@/components/AuthProvider";
-import { LanguageProvider } from "@/components/LanguageProvider";
-import { ThemeProvider } from "@/components/ThemeProvider";
-import JsonLd from "@/components/JsonLd";
-import ServiceWorkerRegister from "@/components/ServiceWorkerRegister";
-import { Toaster } from "react-hot-toast";
+import { Playfair_Display, Lato, Noto_Sans_Tamil, Noto_Serif_Tamil } from "next/font/google"; // 2
+import "./globals.css"; // 3
+import Navbar from "@/components/Navbar"; // 4
+import Footer from "@/components/Footer"; // 5
+import { AuthProvider } from "@/components/AuthProvider"; // 6
+import { LanguageProvider } from "@/components/LanguageProvider"; // 7
+import { ThemeProvider } from "@/components/ThemeProvider"; // 8
+import JsonLd from "@/components/JsonLd"; // 9
+import ServiceWorkerRegister from "@/components/ServiceWorkerRegister"; // 10
+import { Toaster } from "react-hot-toast"; // 11
 
-const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
-const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "700", "900"],
+  variable: '--font-lato',
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: '--font-playfair',
+});
+
+const notoSansTamil = Noto_Sans_Tamil({
+  subsets: ["tamil"],
+  variable: '--font-noto-sans-tamil',
+});
+
+const notoSerifTamil = Noto_Serif_Tamil({
+  subsets: ["tamil"],
+  variable: '--font-noto-serif-tamil',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.spritualhometamil.com'),
@@ -103,7 +121,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${lato.variable} ${playfair.variable} ${notoSansTamil.variable} ${notoSerifTamil.variable} font-sans antialiased`}>
         <LanguageProvider>
           <ThemeProvider defaultTheme="light" storageKey="spiritual-home-theme">
             <JsonLd />

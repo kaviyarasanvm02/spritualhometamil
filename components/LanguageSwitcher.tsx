@@ -13,6 +13,7 @@ export default function LanguageSwitcher() {
                     ? 'bg-white text-amber-600 shadow-sm'
                     : 'text-gray-500 hover:text-gray-900'
                     }`}
+                aria-pressed={language === 'en'}
             >
                 English
             </button>
@@ -22,6 +23,7 @@ export default function LanguageSwitcher() {
                     ? 'bg-white text-amber-600 shadow-sm'
                     : 'text-gray-500 hover:text-gray-900'
                     }`}
+                aria-pressed={language === 'ta'}
             >
                 தமிழ்
             </button>

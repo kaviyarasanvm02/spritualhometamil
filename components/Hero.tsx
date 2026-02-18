@@ -117,7 +117,7 @@ export default function Hero() {
 
                     {/* Primary Button */}
                     <Link
-                        href="#courses"
+                        href="videos"
                         className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-brand-gradient px-10 py-5 text-lg font-bold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(244,163,0,0.6)] focus:outline-none focus:ring-2 focus:ring-[#FFC857] focus:ring-offset-2 focus:ring-offset-gray-900 w-full sm:w-auto"
                     >
                         <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-shine" />

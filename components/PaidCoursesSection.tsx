@@ -37,7 +37,7 @@ export default function PaidCoursesSection() {
         <section className="bg-white dark:bg-gray-950 py-24 sm:py-32 transition-colors duration-300 overflow-hidden">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 {/* STANDARD LEVEL PROGRAMS */}
-                <div className="mb-24">
+                <div id="standard-courses" className="mb-24 scroll-mt-28">
                     <div className="text-center max-w-2xl mx-auto mb-12">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 text-sm font-semibold mb-4 border border-blue-100 dark:border-blue-800">
                             <Sparkles className="w-4 h-4" />
@@ -87,7 +87,7 @@ export default function PaidCoursesSection() {
                 </div>
 
                 {/* PREMIUM MASTERCLASS PROGRAMS */}
-                <div>
+                <div id="premium-courses" className="scroll-mt-28">
                     <div className="text-center max-w-2xl mx-auto mb-16">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F3C623]/10 dark:bg-[#F3C623]/10 text-[#D4Af37] dark:text-[#F3C623] text-sm font-semibold mb-4 border border-[#F3C623]/20 dark:border-[#996515]/30">
                             <Star className="w-4 h-4 fill-[#D4Af37] dark:fill-[#F3C623]" />
@@ -140,6 +140,7 @@ export default function PaidCoursesSection() {
     );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function CourseCard({ course, language, theme }: { course: any, language: any, theme: 'blue' | 'gold' }) {
     const isGold = theme === 'gold';
     const borderColor = isGold ? 'border-[#D4Af37]/20 group-hover:border-[#F3C623]/60' : 'border-blue-100 dark:border-blue-800 group-hover:border-blue-300 dark:group-hover:border-blue-600';

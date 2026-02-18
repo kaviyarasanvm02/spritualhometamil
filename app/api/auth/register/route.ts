@@ -3,14 +3,18 @@ import prisma from "@/lib/prisma";
 import { hashPassword, signToken } from "@/lib/auth";
 import { cookies } from "next/headers";
 import { sendWelcomeEmail } from "@/lib/mail";
+import { registerSchema } from "@/lib/validations";
 
 export async function POST(req: Request) {
     try {
-        const { name, email, password } = await req.json();
+        const body = await req.json();
+        const validation = registerSchema.safeParse(body);
 
-        if (!email || !password) {
-            return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+        if (!validation.success) {
+            return NextResponse.json({ error: validation.error.issues[0].message }, { status: 400 });
         }
+
+        const { name, email, password } = validation.data;
 
         const existingUser = await prisma.user.findUnique({
             where: { email },

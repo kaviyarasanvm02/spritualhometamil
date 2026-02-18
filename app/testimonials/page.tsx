@@ -2,6 +2,7 @@
 
 import { useLanguage } from "../../components/LanguageProvider";
 import AudioPlayer from "../../components/AudioPlayer";
+import Image from "next/image";
 import { Quote, MessageCircle, Mic } from "lucide-react";
 
 export default function TestimonialsPage() {
@@ -75,12 +76,15 @@ export default function TestimonialsPage() {
                         {textReviews.map((review) => (
                             <div key={review.id} className="break-inside-avoid">
                                 <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 dark:border-gray-700">
-                                    <img
-                                        src={review.src}
-                                        alt={review.alt}
-                                        loading="lazy"
-                                        className="w-full h-auto hover:scale-105 transition-transform duration-500"
-                                    />
+                                    <div className="relative w-full h-auto min-h-[200px]">
+                                        <Image
+                                            src={review.src}
+                                            alt={review.alt}
+                                            fill
+                                            className="object-cover hover:scale-105 transition-transform duration-500"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         ))}

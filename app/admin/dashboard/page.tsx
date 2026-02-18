@@ -63,8 +63,8 @@ export default function AdminDashboard() {
                 if (usersData.users && videosData.videos && ordersData.orders) {
                     // Calculate Revenue
                     const totalRevenue = ordersData.orders
-                        .filter((o: any) => o.status === 'PAID')
-                        .reduce((sum: number, o: any) => sum + (o.amount || 0), 0);
+                        .filter((o: import("@/types").Order) => o.status === 'PAID')
+                        .reduce((sum: number, o: import("@/types").Order) => sum + (o.amount || 0), 0);
 
                     // Update Stats
                     setStats([
@@ -104,7 +104,7 @@ export default function AdminDashboard() {
                     ]);
 
                     // Map Recent Orders
-                    const mappedOrders = ordersData.orders.slice(0, 10).map((order: any) => ({
+                    const mappedOrders = ordersData.orders.slice(0, 10).map((order: import("@/types").Order) => ({
                         id: `#${order.id.slice(-6).toUpperCase()}`,
                         realId: order.id,
                         user: order.user?.name || 'Unknown',
@@ -138,8 +138,7 @@ export default function AdminDashboard() {
             "Status": order.status,
             "Date": order.date
         }));
-        const ws = XLSX.utils.json_to_sheet(dataForExcel);
-        XLSX.utils.book_append_sheet(wb, ws, "Recent Orders");
+        XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(dataForExcel), "Recent Orders");
         XLSX.writeFile(wb, "admin_report.xlsx");
     };
 

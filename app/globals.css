@@ -20,14 +20,14 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-playfair), serif;
+    font-family: var(--font-playfair), var(--font-noto-serif-tamil), serif;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-lato), var(--font-noto-sans-tamil), sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 

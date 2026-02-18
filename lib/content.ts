@@ -9,6 +9,11 @@ export const content = {
             signup: "Sign Up",
             logout: "Logout",
             testimonials: "Success Stories",
+            about: "About",
+            ebook: "Free E-Book",
+            freeCourse: "Free Course",
+            standard: "Standard Level",
+            premium: "Premium Level"
         },
         hero: {
             title: "Welcome to Spiritual Home Tamil!",
@@ -51,6 +56,7 @@ export const content = {
         },
         freeCourses: {
             title: "Free Course Section",
+            subtitle: "Begin your transformation with our complimentary spiritual guides.",
             universeCall: "UNIVERSE CALL",
             basicLevel: "FREE COURSE: BASIC LEVEL",
             course1: {
@@ -98,7 +104,9 @@ export const content = {
             payOnce: "Pay once, own forever",
             startingFrom: "starting from",
             browse: "Browse Courses",
-            invoice: "Secure invoice and receipt included"
+            invoice: "Secure invoice and receipt included",
+            choosePlan: "Choose Access Plan",
+            buyNow: "Buy Now"
         },
         payment: {
             title: "Secure & Seamless Payments",
@@ -300,6 +308,11 @@ export const content = {
             signup: "பதிவு செய்க",
             logout: "வெளியேறு",
             testimonials: "வெற்றிக் கதைகள்",
+            about: "எங்களைப் பற்றி",
+            ebook: "இலவச இ-புத்தகம்",
+            freeCourse: "இலவசப் பாடப்பிரிவு",
+            standard: "தரநிலை பாடங்கள்",
+            premium: "பிரீமியம் பாடங்கள்"
         },
         hero: {
             title: "Welcome to Spiritual Home Tamil! ஸ்பிரிச்சுவல் ஹோம் தமிழுக்கு உங்களை வரவேற்கிறோம்!",
@@ -342,6 +355,7 @@ export const content = {
         },
         freeCourses: {
             title: "இலவசப் பாடப்பிரிவு",
+            subtitle: "எங்கள் இலவச ஆன்மீக வழிகாட்டிகளுடன் உங்கள் மாற்றத்தைத் தொடங்குங்கள்.",
             universeCall: "பிரபஞ்சத்தின் அழைப்பு",
             basicLevel: "இலவசப் பயிற்சி: அடிப்படை நிலை",
             course1: {
@@ -390,7 +404,9 @@ export const content = {
             payOnce: "ஒரு முறை செலுத்துங்கள், எப்போதும் சொந்தமாக்குங்கள்",
             startingFrom: "இதிலிருந்து தொடங்குகிறது",
             browse: "பயிற்சிகளை ஆராயுங்கள்",
-            invoice: "பாதுகாப்பான விலைப்பட்டியல் மற்றும் ரசீது சேர்க்கப்பட்டுள்ளது"
+            invoice: "பாதுகாப்பான விலைப்பட்டியல் மற்றும் ரசீது சேர்க்கப்பட்டுள்ளது",
+            choosePlan: "அணுகல் திட்டத்தைத் தேர்ந்தெடுக்கவும்",
+            buyNow: "இப்போது வாங்க"
         },
         payment: {
             title: "பாதுகாப்பான & தடையற்ற கொடுப்பனவுகள்",

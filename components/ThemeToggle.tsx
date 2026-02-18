@@ -11,6 +11,7 @@ export function ThemeToggle() {
     // Avoid hydration mismatch
     useEffect(() => {
         setMounted(true);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (!mounted) return null;
@@ -19,8 +20,8 @@ export function ThemeToggle() {
         <button
             onClick={toggleTheme}
             className={`relative p-2 rounded-full transition-colors duration-300 focus:outline-none ${theme === "dark"
-                    ? "bg-gray-800 text-yellow-400 hover:bg-gray-700"
-                    : "bg-amber-100 text-amber-600 hover:bg-amber-200"
+                ? "bg-gray-800 text-yellow-400 hover:bg-gray-700"
+                : "bg-amber-100 text-amber-600 hover:bg-amber-200"
                 }`}
             aria-label="Toggle Theme"
         >

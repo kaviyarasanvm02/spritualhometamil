@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import aspectRatio from '@tailwindcss/aspect-ratio';
 
 const config: Config = {
     content: [
@@ -15,13 +16,13 @@ const config: Config = {
                 foreground: "var(--foreground)",
             },
             fontFamily: {
-                sans: ["var(--font-inter)", "sans-serif"],
-                serif: ["var(--font-playfair)", "serif"],
+                sans: ["var(--font-lato)", "var(--font-noto-sans-tamil)", "sans-serif"],
+                serif: ["var(--font-playfair)", "var(--font-noto-serif-tamil)", "serif"],
             },
         },
     },
     plugins: [
-        require('@tailwindcss/aspect-ratio'),
+        aspectRatio,
     ],
 };
 export default config;

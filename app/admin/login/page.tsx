@@ -36,8 +36,12 @@ export default function AdminLoginPage() {
 
             login(data.user);
             router.push("/admin/dashboard");
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setError(err.message);
+            } else {
+                setError("Login failed");
+            }
         } finally {
             setIsSubmitting(false);
         }

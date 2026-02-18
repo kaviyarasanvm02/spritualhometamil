@@ -19,7 +19,7 @@ export async function comparePassword(plain: string, hashed: string) {
     return await bcrypt.compare(plain, hashed);
 }
 
-export function signToken(payload: any) {
+export function signToken(payload: UserPayload) {
     return jwt.sign(payload, JWT_SECRET, { expiresIn: "7d" });
 }
 

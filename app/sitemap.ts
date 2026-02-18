@@ -1,7 +1,15 @@
 import { MetadataRoute } from 'next';
+import { courses } from '@/lib/courses.data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.spritualhometamil.com';
+
+    const courseUrls: MetadataRoute.Sitemap = courses.map((course) => ({
+        url: `${baseUrl}/courses/${course.slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 0.9,
+    }));
 
     return [
         {
@@ -40,5 +48,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'yearly',
             priority: 0.3,
         },
+        ...courseUrls,
     ];
 }
