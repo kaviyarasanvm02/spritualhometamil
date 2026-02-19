@@ -100,12 +100,12 @@ export default function AboutSection() {
 
                 {/* Right Column: Profile / Intro Section */}
                 <div className="text-left animate-fade-in lg:order-2 order-1">
-                    <div className="flex items-center gap-4 mb-6">
+                    <div className="flex items-center gap-4 mb-6 pl-8 sm:pl-0">
                         <div className="inline-flex items-center justify-center p-3 rounded-full bg-amber-100/50 dark:bg-amber-900/30 ring-1 ring-amber-200 dark:ring-amber-800">
                             <User className="w-6 h-6 text-amber-600 dark:text-amber-400" />
                         </div>
 
-                        <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-none">
+                        <h2 className="text-3xl sm:text-4xl font-extrabold font-serif tracking-tight text-gray-900 dark:text-white leading-none">
                             {t.about.title}
                         </h2>
                     </div>
@@ -114,10 +114,10 @@ export default function AboutSection() {
                         {/* Decorative Quote Mark */}
                         <span className="absolute -top-6 -left-4 text-7xl text-amber-200 dark:text-amber-900/50 opacity-50 font-serif leading-none">“</span>
 
-                        <p className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 leading-relaxed">
+                        <p className="text-xl sm:text-2xl font-semibold font-sans text-gray-800 dark:text-gray-100 mb-4 leading-relaxed">
                             {t.about.name}
                         </p>
-                        <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        <p className="text-lg text-gray-600 dark:text-gray-300 font-sans leading-relaxed mb-6">
                             {t.about.description1}
                         </p>
                         <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-400 to-transparent mb-6" />
@@ -131,39 +131,29 @@ export default function AboutSection() {
             {/* Social / Platform Section (Marquee) */}
             <div className="mx-auto max-w-7xl overflow-hidden">
                 <div className="text-center mb-12">
-                    <span className="text-amber-600 dark:text-amber-400 font-bold tracking-wider uppercase text-sm">{t.platform.title}</span>
-                    <h3 className="mt-2 text-3xl font-bold text-gray-900 dark:text-white">Join Our Growing Community</h3>
+                    <span className="text-amber-600 dark:text-amber-400 font-bold font-sans tracking-wider uppercase text-sm">{t.platform.title}</span>
+                    <h3 className="mt-2 text-3xl font-bold font-serif text-gray-900 dark:text-white">Join Our Growing Community</h3>
                 </div>
 
-                <div className="relative flex overflow-x-hidden group">
-                    <motion.div
-                        className="flex gap-6 whitespace-nowrap"
-                        animate={{ x: [0, -1035] }} // Adjust based on width of items
-                        transition={{
-                            repeat: Infinity,
-                            duration: 20,
-                            ease: "linear",
-                        }}
-                    >
-                        {[...socialLinks, ...socialLinks, ...socialLinks].map((item, index) => (
-                            <a
-                                key={`${item.name}-${index}`}
-                                href={item.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={`relative flex flex-col items-center p-8 bg-white/60 dark:bg-black/20 backdrop-blur-lg rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300 hover:shadow-xl ${item.hoverBorder} w-72 flex-shrink-0`}
-                            >
-                                <div className={`mb-6 p-4 rounded-2xl ${item.bgColor} dark:bg-white/5 transition-transform duration-300`}>
-                                    <item.icon className={`h-8 w-8 ${item.color}`} />
-                                </div>
-                                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{item.name.split(':')[0]}</h4>
-                                <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-6">{item.name.split(':')[1] || "Connect with us"}</p>
-                                <span className={`mt-auto inline-flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-colors ${item.bgColor} dark:bg-gray-700 ${item.color}`}>
-                                    {item.buttonText}
-                                </span>
-                            </a>
-                        ))}
-                    </motion.div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+                    {socialLinks.map((item, index) => (
+                        <a
+                            key={`${item.name}-${index}`}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`relative flex flex-col items-center p-6 bg-white/60 dark:bg-black/20 backdrop-blur-lg rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 transition-all duration-300 hover:shadow-xl ${item.hoverBorder} w-full`}
+                        >
+                            <div className={`mb-4 p-4 rounded-2xl ${item.bgColor} dark:bg-white/5 transition-transform duration-300`}>
+                                <item.icon className={`h-8 w-8 ${item.color}`} />
+                            </div>
+                            <h4 className="text-lg font-bold font-serif text-gray-900 dark:text-white mb-2 text-center">{item.name.split(':')[0]}</h4>
+                            <p className="text-sm font-medium font-sans text-gray-500 dark:text-gray-400 mb-6 text-center">{item.name.split(':')[1] || "Connect with us"}</p>
+                            <span className={`mt-auto inline-flex items-center gap-2 px-6 py-2 rounded-full text-sm font-semibold transition-colors ${item.bgColor} dark:bg-gray-700 ${item.color}`}>
+                                {item.buttonText}
+                            </span>
+                        </a>
+                    ))}
                 </div>
             </div>
         </section>

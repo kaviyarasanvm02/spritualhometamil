@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,6 +17,8 @@ export default function PaidCoursesSection() {
 
     const standardRef = useRef<HTMLDivElement>(null);
     const premiumRef = useRef<HTMLDivElement>(null);
+    const isPausedStandard = useRef(false);
+    const isPausedPremium = useRef(false);
 
     const scroll = (direction: 'left' | 'right', ref: React.RefObject<HTMLDivElement | null>) => {
         if (ref.current) {
@@ -31,6 +33,50 @@ export default function PaidCoursesSection() {
                 behavior: 'smooth'
             });
         }
+    };
+
+    // Auto-scroll helper
+    const setupAutoScroll = (ref: React.RefObject<HTMLDivElement | null>, isPaused: React.MutableRefObject<boolean>) => {
+        if (ref.current && !isPaused.current) {
+            const container = ref.current;
+            // Check if we can scroll more
+            const maxScrollLeft = container.scrollWidth - container.clientWidth;
+
+            if (container.scrollLeft >= maxScrollLeft - 10) {
+                // If at end, loop back to start smoothly
+                container.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                // Determine scrolling amount - use width of first child or container width
+                const scrollAmount = container.children[0]?.clientWidth || 300;
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+    };
+
+    // Effect for Standard Courses
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setupAutoScroll(standardRef, isPausedStandard);
+        }, 3000); // 3 seconds interval
+
+        return () => clearInterval(interval);
+    }, []);
+
+    // Effect for Premium Courses
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setupAutoScroll(premiumRef, isPausedPremium);
+        }, 3500); // 3.5 seconds interval (staggered slightly)
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const handleInteractionStart = (isPausedRef: React.MutableRefObject<boolean>) => {
+        isPausedRef.current = true;
+    };
+
+    const handleInteractionEnd = (isPausedRef: React.MutableRefObject<boolean>) => {
+        isPausedRef.current = false;
     };
 
     return (
@@ -51,7 +97,13 @@ export default function PaidCoursesSection() {
                         </p>
                     </div>
 
-                    <div className="relative">
+                    <div
+                        className="relative"
+                        onMouseEnter={() => handleInteractionStart(isPausedStandard)}
+                        onMouseLeave={() => handleInteractionEnd(isPausedStandard)}
+                        onTouchStart={() => handleInteractionStart(isPausedStandard)}
+                        onTouchEnd={() => handleInteractionEnd(isPausedStandard)}
+                    >
                         {/* Navigation Buttons Standard */}
                         <button
                             onClick={() => scroll('left', standardRef)}
@@ -101,7 +153,13 @@ export default function PaidCoursesSection() {
                         </p>
                     </div>
 
-                    <div className="relative">
+                    <div
+                        className="relative"
+                        onMouseEnter={() => handleInteractionStart(isPausedPremium)}
+                        onMouseLeave={() => handleInteractionEnd(isPausedPremium)}
+                        onTouchStart={() => handleInteractionStart(isPausedPremium)}
+                        onTouchEnd={() => handleInteractionEnd(isPausedPremium)}
+                    >
                         {/* Navigation Buttons Premium */}
                         <button
                             onClick={() => scroll('left', premiumRef)}

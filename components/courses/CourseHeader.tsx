@@ -63,7 +63,7 @@ export default function CourseHeader({ title, type, thumbnail, displayContent }:
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 text-xs font-bold uppercase tracking-wider mb-4 border border-indigo-100 dark:border-indigo-800">
                             {type === 'free' ? 'Free Course' : 'Standard Program'}
                         </div>
-                        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                        <h1 className="text-3xl sm:text-4xl font-bold font-serif text-gray-900 dark:text-white mb-6 leading-tight">
                             {title}
                         </h1>
                         {displayContent.introTitle && (
