@@ -26,7 +26,7 @@ export const relationshipManifestation: Course = {
                 { title: "3. Write Clear Intention and Read Morning and Night" },
                 { title: "4. Do Daily Practice Whatever It Happens" }
             ],
-            description: "Do I really want? How much for 10/10? I do anything for this relationship? 22 to 66 days? Don't chase just be happy.",
+            description: "Every relationship you see in your life is a reflection of your inner state. If you want to change or attract any relationship, first change your inner state. When you transform within, the right relationship will be attracted to you, and your existing relationships will also improve.",
             sections: [
                 {
                     title: "Practice Morning and Evening",
@@ -50,7 +50,7 @@ export const relationshipManifestation: Course = {
                 { title: "3. எழுதுதல் (Write): உங்கள் நோக்கத்தைத் தெளிவாக எழுதுங்கள்; அதை காலையிலும் இரவிலும் படியுங்கள்." },
                 { title: "4. செயல்முறை (Do): சூழல் எப்படி இருந்தாலும், தினசரி பயிற்சியை செய்யுங்கள்." }
             ],
-            description: "• எனக்கு இது உண்மையில் வேண்டுமா? 10-க்கு எவ்வளவு முக்கியத்துவம் கொடுப்பேன்?\n• இந்த உறவுக்காக நான் எதையும் செய்யத் தயாரா?\n• 22 முதல் 66 நாட்கள் வரை செய்ய முடியுமா?\n• தேடி ஓடாதீர்கள், மகிழ்ச்சியாக இருங்கள். \"இதை நான் செய்வேனா?\" என்று உறுதியெடுங்கள்.\n• என்னால் செய்ய முடியும் என்றால் மட்டுமே தொடரவும்.",
+            description: "உங்கள் வாழ்க்கையில் நீங்கள் காணும் ஒவ்வொரு உறவும், உங்கள் உள்ளார்ந்த நிலையின் பிரதிபலிப்பே ஆகும். எந்த உறவையும் மாற்றவோ அல்லது புதிய உறவை ஈர்க்கவோ விரும்பினால், முதலில் உங்கள் உள்ளார்ந்த நிலையை மாற்றுங்கள். நீங்கள் உள்ளிருந்து மாறும்போது, சரியான உறவு உங்களை நோக்கி ஈர்க்கப்படும்; ஏற்கனவே உள்ள உறவுகளும் மேம்படும்.",
             sections: [
                 {
                     title: "காலை மற்றும் மாலை நேரப் பயிற்சி",
@@ -65,5 +65,9 @@ export const relationshipManifestation: Course = {
                 }
             ]
         }
-    }
+    },
+    reviews: [
+        { type: 'voice', src: '/reviews/relationship-manifestation/person 1.mp3', title: 'Student Success Story 1' },
+        { type: 'voice', src: '/reviews/relationship-manifestation/person 2.mp3', title: 'Student Success Story 2' }
+    ]
 };

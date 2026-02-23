@@ -42,4 +42,9 @@ export interface Course {
         en: CourseContent;
         ta: CourseContent;
     };
+    reviews?: {
+        type: 'voice' | 'text';
+        src: string;
+        title?: string;
+    }[];
 }

@@ -10,6 +10,7 @@ import { Video } from "@/types";
 import CourseHeader from "@/components/courses/CourseHeader";
 import CoursePricing from "@/components/courses/CoursePricing";
 import CourseCurriculum from "@/components/courses/CourseCurriculum";
+import AudioPlayer from "@/components/AudioPlayer";
 
 interface CourseClientProps {
     course: Course;
@@ -75,6 +76,33 @@ export default function CourseClient({ course }: CourseClientProps) {
                 <div className="my-12"></div>
 
                 <CourseCurriculum episodes={displayContent.episodes} />
+
+                {/* Reviews Section */}
+                {course.reviews && course.reviews.length > 0 && (
+                    <div className="mt-16 sm:mt-24">
+                        <div className="flex items-center gap-3 mb-8">
+                            <div className="p-2 rounded-xl bg-amber-500/10 text-amber-600 dark:text-amber-400">
+                                <Sparkles className="w-6 h-6" />
+                            </div>
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                                {language === 'ta' ? 'மாணவர்களின் வெற்றி கதைகள்' : 'Student Success Stories'}
+                            </h2>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {course.reviews.map((review, idx) => (
+                                <div key={idx}>
+                                    {review.type === 'voice' && (
+                                        <AudioPlayer
+                                            src={review.src}
+                                            title={review.title || (language === 'ta' ? `மாணவர் வெற்றி கதை #${idx + 1}` : `Student Story #${idx + 1}`)}
+                                        />
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
                 <div className="w-full h-px bg-gray-200 dark:bg-gray-800 my-12" />
 

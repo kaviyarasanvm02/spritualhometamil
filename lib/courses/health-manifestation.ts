@@ -26,7 +26,7 @@ export const healthManifestation: Course = {
                 { title: "3. Write Clear Intention and Read Morning and Night" },
                 { title: "4. Do Daily Practice Whatever It Happens" }
             ],
-            description: "Do I really want? How much for 10/10? I do anything for this health? 22 to 66 days? Your mind God for your body.",
+            description: "The mind is the master of your body. The body responds to what the mind believes and commands. When you transform your mind in the right way, your body begins to adjust and support better health. As a result, you can move toward a healthier and more balanced life. Here, you will learn how to do this in a practical way.",
             sections: [
                 {
                     title: "Guided Content",
@@ -43,12 +43,12 @@ export const healthManifestation: Course = {
             introTitle: "அறிமுகம் (Intro)",
             introVideo: "https://www.youtube.com/embed/qIOlVtMtmQw",
             episodes: [
-                { title: "1. ஆரோக்கியம் குறித்த அறிமுகம்: உடல் தன்னைத்தானே குணப்படுத்தும் ஆற்றல் கொண்டது என்பதை உணர்தல். உங்கள் எண்ணம் எப்போதும் நேர்மறையானதாக இருக்க வேண்டும்." },
-                { title: "2. அதிர்வு பொருத்தம் (Vibration Match): உங்கள் மனநிலையை ஆரோக்கியமான அதிர்வுகளுக்கு மாற்றுங்கள் மற்றும் எதிர்மறை நம்பிக்கைகளை அகற்றுங்கள்." },
-                { title: "3. தெளிவான நோக்கத்தை எழுதுதல்: உங்கள் ஆரோக்கிய இலக்கைத் தெளிவாக எழுதி, அதைத் தினமும் காலை மற்றும் இரவு நேரங்களில் வாசிக்கவும்." },
-                { title: "4. தினசரி பயிற்சி: சூழல் எதுவாக இருந்தாலும், பயிற்சியைத் தடையின்றித் தொடரவும்." }
+                { title: "1. உடல் மற்றும் மனம் பற்றிய அறிமுகம்: மனம் சொல்வதை உடல் கேட்கும்." },
+                { title: "2. உடல் ஒரு கருவி: உங்கள் ஆரோக்கியத்தை மீட்டெடுப்பதற்கான வழிகள்." },
+                { title: "3. நன்றியுணர்வு: உங்கள் உடலுக்கு நன்றி கூறி குணப்படுத்துதல்." },
+                { title: "4. தினசரி பயிற்சி: ஆழ்மனதின் மூலம் ஆரோக்கியத்தைப் பெறுதல்." }
             ],
-            description: "முக்கியக் கேள்விகள் மற்றும் வழிமுறைகள்:\n• இது எனக்கு உண்மையிலேயே வேண்டுமா?: உங்கள் விருப்பத்திற்கு 10-க்கு எத்தனை மதிப்பெண் தருவீர்கள்?\n• இந்த ஆரோக்கியத்தைப் பெற நான் எதையும் செய்யத் தயாரா?\n• கால அளவு: 22 முதல் 66 நாட்கள் வரை தொடர்ந்து பயிற்சி செய்யவும்.\n• மனமே மருந்து: உங்கள் உடலுக்கு உங்கள் மனமே கடவுள் (உடல் ஆரோக்கியம் மனதைப் பொறுத்தது).\n• முழு ஈடுபாட்டுடன் செய்ய முடியும் என்றால் மட்டுமே தொடரவும்.",
+            description: "மனம் உங்கள் உடலின் தலைவர் போன்றது. மனம் என்ன நம்புகிறது, என்ன கூறுகிறது என்பதைக் கேட்டு உடல் செயல்படுகிறது. நீங்கள் உங்கள் மனதை சரியான முறையில் மாற்றும்போது, உடல் அதற்கு ஏற்ப தன்னைச் சீரமைத்து ஆரோக்கியத்தை ஆதரிக்க ஆரம்பிக்கும். இதன் மூலம், நீங்கள் ஆரோக்கியமான மற்றும் சமநிலையான வாழ்க்கையை நோக்கி நகரலாம். இதை நடைமுறையில் எப்படி செய்ய வேண்டும் என்பதை இங்கு நீங்கள் கற்றுக்கொள்வீர்கள்.",
             sections: [
                 {
                     title: "வழிகாட்டப்பட்ட பயிற்சிகள் (Guided Practices)",
@@ -61,5 +61,10 @@ export const healthManifestation: Course = {
                 }
             ]
         }
-    }
+    },
+    reviews: [
+        { type: 'voice', src: '/reviews/health-manifestation/person 1.mp3', title: 'Student Success Story 1' },
+        { type: 'voice', src: '/reviews/health-manifestation/person 2.mp3', title: 'Student Success Story 2' },
+        { type: 'voice', src: '/reviews/health-manifestation/person 3.mp3', title: 'Student Success Story 3' }
+    ]
 };

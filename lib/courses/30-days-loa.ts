@@ -9,7 +9,7 @@ export const thirtyDaysLoa: Course = {
         ta: "30 நாட்கள் முழு ஈர்ப்பு விதி பயிற்சி"
     },
     dbTitleMatch: "30-Day Transformation Program",
-    thumbnail: "/assets/loa-program.png",
+    thumbnail: "/assets/loa-programm.png",
     pricing: [
         { duration: "1 Month Access", durationTa: "1 மாத அணுகல்", price: 1499, period: 'monthly' },
         { duration: "6 Months Access", durationTa: "6 மாதங்கள் அணுகல்", price: 4499, period: '6_months' },
@@ -21,17 +21,18 @@ export const thirtyDaysLoa: Course = {
             introTitle: "Introduction",
             introVideo: "https://www.youtube.com/embed/qIOlVtMtmQw",
             episodes: [], // Episodes are described as weekly blocks, simplifying for now
+            description: "Are you wondering why your manifestation is not happening? Here is the answer: Clarity without practice will not work. Practice without clarity will also not work. You need both clarity and consistent practice at the same time. Here, you will learn how to develop and apply both effectively.",
             sections: [
                 {
-                    title: "1st Week: Foundation",
+                    title: "WEEK 1 - Foundations of Consciousness",
                     content: [
-                        "1. Understanding our subconscious mind & set clear intention",
-                        "2. Subconscious 50% consciousness 50%",
-                        "3. Subconscious will not allow you",
-                        "4. Intention writing (it's already happened)",
-                        "5. Understanding consciousness (breaking negative pattern)",
-                        "6. Understanding energy (everything is vibration)",
-                        "7. Identify negative belief & self-analyse (write thoughts)"
+                        "Day 1: Understanding Your Identity beyond the name",
+                        "Day 2: The Nature of thoughts and mind",
+                        "Day 3: Breath awareness - Your anchor to the present",
+                        "Day 4: Observing old patterns without judgement",
+                        "Day 5: The power of silence and stillness",
+                        "Day 6: Releasing labels from the past",
+                        "Day 7: Summary and Integration of Week 1"
                     ]
                 },
                 {
@@ -77,6 +78,7 @@ export const thirtyDaysLoa: Course = {
         ta: {
             introTitle: "30 நாட்கள் முழு ஈர்ப்பு விதி பயிற்சி",
             episodes: [],
+            description: "“என் விருப்பங்கள் ஏன் நனவாகவில்லை?” என்று நீங்கள் யோசித்து வருகிறீர்களா? இதோ அதற்கான பதில்: தெளிவு மட்டும் இருந்தால் போதாது; பயிற்சி இல்லையெனில் அது செயல்பாது. பயிற்சி மட்டும் இருந்தாலும், தெளிவு இல்லையெனில் அதுவும் பயனளிக்காது. தெளிவும் தொடர்ச்சியான பயிற்சியும் இரண்டும் ஒன்றாக இருக்க வேண்டும். இங்கு, இந்த இரண்டையும் எப்படி வளர்த்துக் கொண்டு நடைமுறையில் பயன்படுத்துவது என்பதை நீங்கள் கற்றுக்கொள்வீர்கள்.",
             sections: [
                 {
                     title: "முதல் வாரம்",
@@ -130,5 +132,10 @@ export const thirtyDaysLoa: Course = {
                 }
             ]
         }
-    }
+    },
+    reviews: [
+        { type: 'voice', src: '/reviews/30-days-loa/person 1.mp3', title: 'Student Success Story 1' },
+        { type: 'voice', src: '/reviews/30-days-loa/person 2.mp3', title: 'Student Success Story 2' },
+        { type: 'voice', src: '/reviews/30-days-loa/person 3.mp3', title: 'Student Success Story 3' }
+    ]
 };

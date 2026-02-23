@@ -29,20 +29,17 @@ export const freeCourse1: Course = {
                     title: "3. Secret Key of Universe",
                     duration: "30 Min",
                     videoUrl: "https://www.youtube.com/embed/ORIviMb9Am4?si=NymAzh8LdzmJbPPK",
-                    description: "Unlock the secret key to aligning with the universe."
+                    description: "First, understand the Law of Attraction and the infinite possibilities available to you. When you truly realize this, you can begin to consciously create your dream life. In this free course, you will learn about: • The power of possibilities • The real power within you • The laws of nature. Watch all three videos patiently and with an open mind."
                 }
             ],
             sections: [
                 {
                     title: "🌿 A Deeper Awareness Begins",
                     content: [
-                        "If you have completed Free Course 1, you now understand what the Law of Attraction is and what is truly possible in your life.",
-                        "These 3 videos are not meant to change everything instantly. They are meant to open your awareness.",
-                        "Once awareness opens, something happens. You may start noticing:",
-                        "• Old patterns repeating",
-                        "• Emotional blocks surfacing",
-                        "• Desire for clarity, not just information",
-                        "This is not confusion. This is growth beginning."
+                        "If you have completed Free Course 1, you now understand what the Law of Attraction is and how it works. You have heard the fundamental principles.",
+                        "However, understanding is only the first step. To see real change, practice must follow.",
+                        "Free Course 2 is wait for you. It contains a 30-day journey of practical application.",
+                        "**The next level of your transformation is here.**"
                     ]
                 },
                 {
@@ -170,5 +167,12 @@ export const freeCourse1: Course = {
                 }
             ]
         }
-    }
+    },
+    reviews: [
+        { type: 'voice', src: '/reviews/free-course-1/PERSON 1.mp3', title: 'Student Success Story 1' },
+        { type: 'voice', src: '/reviews/free-course-1/person 2.mp3', title: 'Student Success Story 2' },
+        { type: 'voice', src: '/reviews/free-course-1/person 3_1.mp3', title: 'Student Success Story 3' },
+        { type: 'voice', src: '/reviews/free-course-1/person 4.mp3', title: 'Student Success Story 4' },
+        { type: 'voice', src: '/reviews/free-course-1/person 5.mp3', title: 'Student Success Story 5' }
+    ]
 };

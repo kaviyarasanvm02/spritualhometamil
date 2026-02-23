@@ -26,7 +26,7 @@ export const jobManifestation: Course = {
                 { title: "3. Write Clear Intention and Read Morning and Night" },
                 { title: "4. Do Daily Practice Whatever It Happens" }
             ],
-            description: "Do I really want? How much for 10/10? I do anything for this job? 22 to 66 days? Don't chase just do process.",
+            description: "If you want to attract or improve your job or business, you need to clear your mind and body. You must also feel truly worthy of the job or business you desire. Here, you will learn how to do this in a practical and effective way.",
             sections: [
                 {
                     title: "Guided Content",
@@ -48,7 +48,7 @@ export const jobManifestation: Course = {
                 { title: "3. தெளிவான நோக்கத்தை எழுதுதல்: உங்கள் இலக்கைத் தெளிவாக எழுதி, அதைத் தினமும் காலையிலும் இரவிலும் வாசிக்கவும்." },
                 { title: "4. தினசரி பயிற்சி: என்ன நடந்தாலும் சரி, பயிற்சியைத் தொடர்ந்து செய்யவும்." }
             ],
-            description: "முக்கியக் கேள்விகள் மற்றும் வழிமுறைகள்:\n• எனக்கு இது உண்மையிலேயே வேண்டுமா?: 10-க்கு எத்தனை மதிப்பெண் கொடுப்பீர்கள்? (உறுதித்தன்மையைச் சோதிக்க).\n• இந்த வேலைக்காக நான் எதையும் செய்யத் தயாரா?\n• பயிற்சி காலம்: 22 முதல் 66 நாட்கள் வரை தொடர்ந்து செய்யவும்.\n• தேடி அலைய வேண்டாம், பயிற்சியில் கவனம் செலுத்துங்கள்: வேலையைத் துரத்த வேண்டாம்; ஈர்ப்பு செயல்முறையைச் சரியாகச் செய்யுங்கள்.\n• முழு ஈடுபாடு இருந்தால் மட்டுமே தொடரவும்.",
+            description: "நீங்கள் விரும்பும் வேலை அல்லது வியாபாரத்தை ஈர்க்கவோ அல்லது மேம்படுத்தவோ நினைத்தால், முதலில் உங்கள் மனமும் உடலும் தெளிவாக இருக்க வேண்டும். அதற்குத் தகுதியானவர் என்ற உணர்வையும் உங்கள் உள்ளத்தில் வளர்த்துக் கொள்ள வேண்டும். இதை நடைமுறையில் எப்படி செய்ய வேண்டும் என்பதை இங்கு நீங்கள் கற்றுக்கொள்வீர்கள்.",
             sections: [
                 {
                     title: "வழிகாட்டப்பட்ட பயிற்சிகள் (Guided Practices)",
@@ -61,5 +61,9 @@ export const jobManifestation: Course = {
                 }
             ]
         }
-    }
+    },
+    reviews: [
+        { type: 'voice', src: '/reviews/job-manifestation/person 1.mp3', title: 'Student Success Story 1' },
+        { type: 'voice', src: '/reviews/job-manifestation/person 2.mp3', title: 'Student Success Story 2' }
+    ]
 };

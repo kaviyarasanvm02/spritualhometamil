@@ -26,7 +26,7 @@ export const moneyManifestation: Course = {
                 { title: "3. Write Clear Intention and Read Morning and Night" },
                 { title: "4. Do Daily Practice Whatever It Happens", duration: "Important" }
             ],
-            description: "What I am going to give? Its service or money motive? 22 to 66 days? Send happily. Money is Neutral.",
+            description: "Money is energy. You are also energy. When you change your energy in the right way, money is attracted to you. Here, you will learn how to shift your energy and manifest money consciously.",
             sections: [
                 {
                     title: "Daily Practice Guided Music",
@@ -48,7 +48,7 @@ export const moneyManifestation: Course = {
                 { title: "3. எழுதுதல் (Write) உங்கள் நோக்கத்தைத் தெளிவாக எழுதுங்கள்; அதை காலையிலும் இரவிலும் படியுங்கள்." },
                 { title: "4. செயல்முறை (Do) சூழல் எப்படி இருந்தாலும், தினசரி பயிற்சியை செய்யுங்கள்." }
             ],
-            description: "• நான் என்ன கொடுக்கப் போகிறேன்?\n• இது சேவையா அல்லது பண நோக்கமா?\n• 22 முதல் 66 நாட்கள் வரை தொடர வேண்டுமா?\n• மகிழ்ச்சியுடன் கொடுங்கள்/செலவிடுங்கள்.\n• பணம் ஒரு நடுநிலையானது (Money is Neutral).",
+            description: "பணம் ஒரு ஆற்றல். நீங்களும் ஒரு ஆற்றலே. நீங்கள் உங்கள் ஆற்றலை சரியான முறையில் மாற்றும்போது, பணம் உங்களை நோக்கி ஈர்க்கப்படும். இங்கு, உங்கள் ஆற்றலை மாற்றி, விழிப்புணர்வுடன் பணத்தை உருவாக்குவது எப்படி என்பதை நீங்கள் கற்றுக்கொள்வீர்கள்.",
             sections: [
                 {
                     title: "தினசரி பயிற்சிக்கான இசை (Daily practice guided music)",
@@ -61,5 +61,10 @@ export const moneyManifestation: Course = {
                 }
             ]
         }
-    }
+    },
+    reviews: [
+        { type: 'voice', src: '/reviews/money-manifestation/person 1.mp3', title: 'Student Success Story 1' },
+        { type: 'voice', src: '/reviews/money-manifestation/perso 2.mp3', title: 'Student Success Story 2' },
+        { type: 'voice', src: '/reviews/money-manifestation/perso 3.mp3', title: 'Student Success Story 3' }
+    ]
 };

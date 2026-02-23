@@ -32,9 +32,9 @@ export const content = {
             title: "Free E-Books",
             subtitle: "Download our free resources to support your spiritual journey.",
             tamilTitle: "Spiritual Home Tamil (Tamil)",
-            tamilDesc: "Download our free ebook in Tamil to deepen your spiritual knowledge.",
+            tamilDesc: "இந்த மின்னூல் (eBook) ஒரு அறிமுகம் மட்டுமே. இதில், ஈர்ப்பு விதியின் பயிற்சிகள் என்ன என்பதையும், அந்த பயிற்சிகள் உங்கள் வாழ்க்கையில் எப்படி செயல்படுகின்றன என்பதையும் நீங்கள் அறிந்து கொள்வீர்கள்.",
             englishTitle: "Spiritual Home Tamil (English)",
-            englishDesc: "Download our free ebook in English to deepen your spiritual knowledge.",
+            englishDesc: "This eBook is just an introduction. Here, you will learn what the practices of the Law of Attraction are and how these practices work in your life.",
             download: "Download PDF"
         },
         platform: {

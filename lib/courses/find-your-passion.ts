@@ -26,7 +26,7 @@ export const findYourPassion: Course = {
                 { title: "3. Live in Present Purpose (Full fill life)" },
                 { title: "4. Do daily practice whatever it happens" }
             ],
-            description: "How am I? Why I am here? What is this world needs from me?",
+            description: "Have you ever asked yourself, “Why am I here?” “What is my purpose?” “Why am I not able to succeed?” Here, you will discover your true self and understand your life’s purpose.",
             sections: [
                 {
                     title: "Guided Content",
@@ -48,7 +48,7 @@ export const findYourPassion: Course = {
                 { title: "3. தற்போதைய நோக்கத்தில் வாழ்தல்: உங்கள் வாழ்க்கையை முழுமையாக வாழ்ந்து அர்த்தமுள்ளதாக மாற்றுங்கள்." },
                 { title: "4. தினசரி பயிற்சி: சூழல்கள் மாறினாலும், உங்கள் தேடலையும் பயிற்சியையும் நிறுத்தாதீர்கள்." }
             ],
-            description: "சுய ஆய்வுக்கான கேள்விகள்:\n• நான் எப்படி இருக்கிறேன்? (How am I?)\n• நான் ஏன் இங்கு இருக்கிறேன்? (Why am I here?)\n• இந்த உலகிற்கு என்னிடமிருந்து என்ன தேவை? (What is this world needs from me?)",
+            description: "“நான் ஏன் இங்கே இருக்கிறேன்?” “என் வாழ்க்கையின் நோக்கம் என்ன?” “நான் ஏன் வெற்றி பெற முடியவில்லை?” என்று நீங்கள் ஒருபோதாவது உங்களையே கேள்வி கேட்டுள்ளீர்களா? இங்கு, உங்கள் உண்மையான ஆத்மாவை அறிந்து, உங்கள் வாழ்க்கையின் நோக்கத்தை கண்டறிவீர்கள்.",
             sections: [
                 {
                     title: "வழிகாட்டப்பட்ட பயிற்சிகள் (Guided Practices)",
@@ -61,5 +61,11 @@ export const findYourPassion: Course = {
                 }
             ]
         }
-    }
+    },
+    reviews: [
+        { type: 'voice', src: '/reviews/find-your-passion/person 1.mp3', title: 'Student Success Story 1' },
+        { type: 'voice', src: '/reviews/find-your-passion/preson 2.mp3', title: 'Student Success Story 2' },
+        { type: 'voice', src: '/reviews/find-your-passion/preson 3.mp3', title: 'Student Success Story 3' },
+        { type: 'voice', src: '/reviews/find-your-passion/preson 4.mp3', title: 'Student Success Story 4' }
+    ]
 };

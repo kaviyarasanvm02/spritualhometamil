@@ -5,12 +5,15 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
-    "/assets/pic 1.JPG",
-    "/assets/pic 2.png",
-    "/assets/pic 3.png",
-    "/assets/pic 4.png",
-    "/assets/pic 5.png",
-    "/assets/pic 6.png"
+    "/assets/pic 1.jpg",
+    "/assets/pic 2.jpg",
+    "/assets/pic 3.jpg",
+    "/assets/pic 4.jpg",
+    "/assets/pic 5.jpg",
+    "/assets/pic 6.jpg",
+    "/assets/pic 7.jpg",
+    "/assets/pic 8.jpg",
+    "/assets/pic 9.jpg"
 ];
 
 export default function AboutSection() {

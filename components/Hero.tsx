@@ -51,7 +51,7 @@ export default function Hero() {
                     playsInline
                     className="absolute inset-0 w-full h-full object-cover scale-105"
                 >
-                    <source src="/hero-video.mp4" type="video/mp4" />
+                    <source src="/herovideo.mp4" type="video/mp4" />
                 </video>
                 {/* Deep Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/90" />
