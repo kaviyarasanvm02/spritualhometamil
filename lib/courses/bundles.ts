@@ -10,10 +10,9 @@ export const all5CoursesCombo: Course = {
     },
     thumbnail: "/assets/miracle.png", // Temporary placeholder
     pricing: [
-        { duration: "Monthly", durationTa: "மாதாந்திரம்", price: 999, period: 'monthly' },
-        { duration: "6 Months", durationTa: "6 மாதங்கள்", price: 1999, period: '6_months' },
-        { duration: "1 Year", durationTa: "1 வருடம்", price: 2999, period: '1_year', label: "Most Popular" },
-        { duration: "Lifetime Access", durationTa: "வாழ்நாள் அணுகல்", price: 4999, period: 'lifetime' },
+        { duration: "1 Month Access", durationTa: "1 மாத அணுகல்", price: 999, period: 'monthly' },
+        { duration: "3 Months Access", durationTa: "3 மாதங்கள் அணுகல்", price: 1999, period: '3_months' },
+        { duration: "6 Months Access", durationTa: "6 மாதங்கள் அணுகல்", price: 2999, period: '6_months', label: "Most Popular" },
     ],
     content: {
         en: {
@@ -42,9 +41,8 @@ export const transformationSpiritualCombo: Course = {
     thumbnail: "/assets/loa-programm.png", // Temporary placeholder
     pricing: [
         { duration: "1 Month Access", durationTa: "1 மாத அணுகல்", price: 1999, period: 'monthly' },
-        { duration: "6 Months Access", durationTa: "6 மாதங்கள் அணுகல்", price: 5999, period: '6_months' },
-        { duration: "1 Year Access", durationTa: "1 வருட அணுகல்", price: 10999, period: '1_year', label: "Most Popular" },
-        { duration: "Lifetime Access", durationTa: "வாழ்நாள் அணுகல்", price: 14999, period: 'lifetime' },
+        { duration: "3 Months Access", durationTa: "3 மாதங்கள் அணுகல்", price: 5999, period: '3_months' },
+        { duration: "6 Months Access", durationTa: "6 மாதங்கள் அணுகல்", price: 10999, period: '6_months', label: "Most Popular" },
     ],
     content: {
         en: {

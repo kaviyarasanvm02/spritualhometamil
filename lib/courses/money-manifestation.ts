@@ -11,10 +11,9 @@ export const moneyManifestation: Course = {
     dbTitleMatch: "Money Manifestation",
     thumbnail: "/assets/money-manifestationn.png",
     pricing: [
-        { duration: "Monthly", durationTa: "மாதாந்திரம்", price: 299, period: 'monthly' },
-        { duration: "6 Months", durationTa: "6 மாதங்கள்", price: 599, period: '6_months' },
-        { duration: "1 Year", durationTa: "1 வருடம்", price: 999, period: '1_year' },
-        { duration: "Lifetime Access", durationTa: "வாழ்நாள் அணுகல்", price: 1499, period: 'lifetime' },
+        { duration: "1 Month Access", durationTa: "1 மாத அணுகல்", price: 299, period: 'monthly' },
+        { duration: "3 Months Access", durationTa: "3 மாதங்கள் அணுகல்", price: 599, period: '3_months' },
+        { duration: "6 Months Access", durationTa: "6 மாதங்கள் அணுகல்", price: 999, period: '6_months', label: "Best Value" },
     ],
     content: {
         en: {

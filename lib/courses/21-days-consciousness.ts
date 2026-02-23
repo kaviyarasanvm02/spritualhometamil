@@ -12,9 +12,8 @@ export const twentyOneDaysConsciousness: Course = {
     thumbnail: "/assets/money-manifestationn.png",
     pricing: [
         { duration: "1 Month Access", durationTa: "1 மாத அணுகல்", price: 999, period: 'monthly' },
-        { duration: "6 Months Access", durationTa: "6 மாதங்கள் அணுகல்", price: 2999, period: '6_months' },
-        { duration: "1 Year Access", durationTa: "1 வருட அணுகல்", price: 5999, period: '1_year' },
-        { duration: "Lifetime Access", durationTa: "வாழ்நாள் அணுகல்", price: 8999, period: 'lifetime' },
+        { duration: "3 Months Access", durationTa: "3 மாதங்கள் அணுகல்", price: 2999, period: '3_months' },
+        { duration: "6 Months Access", durationTa: "6 மாதங்கள் அணுகல்", price: 5499, period: '6_months', label: "Best Value" },
     ],
     content: {
         en: {

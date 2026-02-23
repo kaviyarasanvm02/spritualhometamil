@@ -23,7 +23,7 @@ export interface PricingOption {
     price: number;
     label?: string; // e.g. "Most Popular", "Best Value"
     durationTa?: string; // Tamil translation for duration
-    period: 'monthly' | '6_months' | '1_year' | 'lifetime';
+    period: 'monthly' | '3_months' | '6_months';
 }
 
 export interface Course {
