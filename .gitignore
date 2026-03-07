@@ -41,6 +41,14 @@ yarn-error.log*
 next-env.d.ts
 
 /app/generated/prisma
-
 .vercel
 .env*.local
+
+# media and large assets
+/public/courses/
+/public/assets/videos/
+*.mp4
+*.mp3
+*.ogg
+*.zip
+*.bundle
